@@ -3,6 +3,8 @@
  * Lê os arquivos .md criados pelo painel (pasta /articles),
  * gera uma página HTML para cada um (pasta /artigos) e um
  * índice (articles/index.json) que a home usa para listar.
+ * Também gera sitemap.xml e robots.txt para o Google encontrar
+ * todas as páginas automaticamente.
  * Roda automaticamente no Netlify a cada publicação.
  */
 const fs = require('fs');
@@ -12,6 +14,7 @@ const { marked } = require('marked');
 
 const SRC = path.join(__dirname, 'articles');   // markdown de origem
 const OUT = path.join(__dirname, 'artigos');     // páginas HTML publicadas
+const SITE_URL = 'https://gat.adv.br';           // domínio publicado
 
 if (!fs.existsSync(SRC)) { fs.mkdirSync(SRC, { recursive: true }); }
 if (!fs.existsSync(OUT)) { fs.mkdirSync(OUT, { recursive: true }); }
@@ -221,4 +224,37 @@ const listPage = `<!DOCTYPE html>
 </html>`;
 fs.writeFileSync(path.join(OUT, 'index.html'), listPage);
 
-console.log(`GAT build: ${index.length} artigo(s) gerado(s).`);
+// ---------------------------------------------------------------
+// sitemap.xml — lista todas as páginas do site para o Google
+// descobrir automaticamente artigos novos, sem indexação manual.
+// ---------------------------------------------------------------
+const today = new Date().toISOString().split('T')[0];
+
+const sitemapUrls = [
+  { loc: `${SITE_URL}/`, lastmod: today },
+  { loc: `${SITE_URL}/artigos/index.html`, lastmod: today },
+  ...index.map(a => ({
+    loc: `${SITE_URL}/artigos/${a.slug}.html`,
+    lastmod: a.date || today,
+  })),
+];
+
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapUrls.map(u => `  <url>
+    <loc>${u.loc}</loc>
+    <lastmod>${u.lastmod}</lastmod>
+  </url>`).join('\n')}
+</urlset>`;
+
+fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemapXml);
+
+// robots.txt — aponta o Google direto para o sitemap
+const robotsTxt = `User-agent: *
+Allow: /
+
+Sitemap: ${SITE_URL}/sitemap.xml
+`;
+fs.writeFileSync(path.join(__dirname, 'robots.txt'), robotsTxt);
+
+console.log(`GAT build: ${index.length} artigo(s) gerado(s). Sitemap com ${sitemapUrls.length} URL(s).`);
