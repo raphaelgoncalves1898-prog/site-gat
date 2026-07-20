@@ -133,11 +133,8 @@
       gap: 12px;
     }
     .nav-ios .logo img {
-      height: 36px;
+      height: 42px;
       width: auto;
-    }
-    .nav-ios .logo-text {
-      display: none;
     }
 
     .nav-ios .nav-links {
@@ -504,13 +501,16 @@
     .contact-ios {
       background: var(--white);
       border-radius: var(--radius);
-      padding: 40px 32px;
+      padding: 40px 40px;
       box-shadow: var(--shadow-lg);
       margin-top: 32px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: 300px 1fr;
+      gap: 48px;
       border: 1px solid var(--gray-200);
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .contact-ios .info h3 {
       font-size: 22px;
@@ -739,9 +739,7 @@
        ============================================================ -->
   <nav class="nav-ios" id="navIOS">
     <a class="logo" href="#top">
-      <!-- IMAGEM DO LOGO (substitua o src pelo caminho correto) -->
-      <img src="gat-horizontal.png" alt="GAT — Gonçalves Advocacia Tributária" />
-      <span class="logo-text">Gonçalves · Advocacia Tributária</span>
+      <img src="/gat-horizontal.png" alt="GAT — Gonçalves Advocacia Tributária" />
     </a>
     <div class="nav-links" id="navLinksIOS">
       <a href="#about" class="pt">Sobre</a>
@@ -918,7 +916,7 @@
       </div>
 
       <div style="margin-top: 24px; text-align: center;">
-        <a href="#" class="btn-ios btn-ios-ghost pt" style="font-size:14px;padding:10px 24px;">Ver todos os artigos</a>
+        <a href="artigos/" class="btn-ios btn-ios-ghost pt" style="font-size:14px;padding:10px 24px;">Ver todos os artigos</a>
         <a href="#" class="btn-ios btn-ios-ghost zh" style="font-size:14px;padding:10px 24px;">查看全部文章</a>
       </div>
     </div>
@@ -928,8 +926,8 @@
        CONTATO
        ============================================================ -->
   <section id="contact" style="background:var(--gray-50);">
-    <div class="wrap">
-      <div class="reveal">
+    <div class="wrap" style="max-width:860px;">
+      <div class="reveal" style="text-align:center;">
         <p class="sec-label pt">Fale conosco</p>
         <p class="sec-label zh">联系我们</p>
         <h2 class="sec-title pt">Estamos disponíveis para uma análise inicial <br><span>de seu caso.</span></h2>
@@ -951,24 +949,25 @@
           <p style="margin-top:8px;font-size:14px;color:var(--gray-400);">Atendimento em todo o Brasil</p>
         </div>
 
-        <form class="form-ios" id="contactFormIOS" onsubmit="return false;">
+        <form class="form-ios" id="contactFormIOS">
           <div class="row">
-            <input type="text" class="pt" placeholder="Seu nome" required />
-            <input type="text" class="zh" placeholder="您的姓名" required />
-            <input type="email" placeholder="E-mail / 邮箱" required />
+            <input type="text" class="pt" name="nome" placeholder="Seu nome" required />
+            <input type="text" class="zh" name="nome_zh" placeholder="您的姓名" />
+            <input type="email" name="email" placeholder="E-mail / 邮箱" required />
           </div>
           <div class="row">
-            <input type="text" class="pt" placeholder="Telefone" />
-            <input type="text" class="zh" placeholder="电话" />
-            <input type="text" class="pt" placeholder="Empresa" />
-            <input type="text" class="zh" placeholder="公司" />
+            <input type="text" class="pt" name="telefone" placeholder="Telefone" />
+            <input type="text" class="zh" name="telefone_zh" placeholder="电话" />
+            <input type="text" class="pt" name="empresa" placeholder="Empresa" />
+            <input type="text" class="zh" name="empresa_zh" placeholder="公司" />
           </div>
-          <input type="text" class="pt" placeholder="Assunto" required />
-          <input type="text" class="zh" placeholder="主题" required />
-          <textarea class="pt" placeholder="Mensagem" rows="4"></textarea>
-          <textarea class="zh" placeholder="消息" rows="4"></textarea>
-          <button type="submit" class="btn-ios pt">Enviar mensagem</button>
-          <button type="submit" class="btn-ios zh">发送消息</button>
+          <input type="text" class="pt" name="assunto" placeholder="Assunto" required />
+          <input type="text" class="zh" name="assunto_zh" placeholder="主题" />
+          <textarea class="pt" name="mensagem" placeholder="Mensagem" rows="4"></textarea>
+          <textarea class="zh" name="mensagem_zh" placeholder="消息" rows="4"></textarea>
+          <button type="submit" class="btn-ios pt" id="btnEnviar">Enviar mensagem</button>
+          <button type="submit" class="btn-ios zh" id="btnEnviarZh">发送消息</button>
+          <p id="formFeedback" style="display:none;margin-top:8px;font-size:14px;color:#2a7a4b;font-weight:500;"></p>
         </form>
       </div>
     </div>
@@ -980,7 +979,7 @@
   <footer class="footer-ios">
     <div class="wrap">
       <div class="col">
-        <h5>GAT · Gonçalves Advocacia Tributária</h5>
+        <img src="/gat-classico.png" alt="GAT" style="height:72px;width:auto;margin-bottom:12px;opacity:0.85;" />
         <span style="font-size:13px;color:var(--gray-400);">© <span id="year"></span> · Todos os direitos reservados</span>
       </div>
       <div class="col">
@@ -1084,44 +1083,33 @@
     });
 
     // ============================================================
-    // ARTICLES — dados estáticos (textos revisados versão boutique)
+    // ARTICLES — carregados do articles/index.json (gerado pelo build)
     // ============================================================
-    const articlesData = [{
-      title: 'Auto de infração: aspectos processuais e estratégicos da defesa administrativa',
-      excerpt: 'O prazo para impugnação é o primeiro divisor de águas. A partir dele, o caso pode seguir para julgamento no CARF ou evoluir para execução judicial. Entender a sistemática é condição para qualquer decisão.',
-      tag: 'Auto de Infração',
-      date: 'jul 2026'
-    }, {
-      title: 'Execução fiscal: a fase judicial da cobrança e os instrumentos de defesa',
-      excerpt: 'A execução fiscal é o momento em que o crédito tributário sai da esfera administrativa e ingressa no Judiciário. A defesa técnica nessa fase exige conhecimento das exceções processuais e das hipóteses de substituição da penhora.',
-      tag: 'Execução Fiscal',
-      date: 'jun 2026'
-    }, {
-      title: 'Transação tributária: instrumento de reorganização de passivos fiscais',
-      excerpt: 'A Lei nº 13.988/2020 abriu caminho para negociações com descontos substanciais e parcelamentos alongados. A transação não é um favor — é um direito, e sua aplicação exige análise cuidadosa do caso concreto.',
-      tag: 'Planejamento Tributário',
-      date: 'mai 2026'
-    }, {
-      title: 'Zona Franca de Manaus: requisitos, benefícios e riscos de descumprimento',
-      excerpt: 'Os incentivos fiscais da ZFM estão condicionados à aprovação do Processo Produtivo Básico e à manutenção de regularidade perante a SUFRAMA. O descumprimento pode implicar a perda retroativa dos benefícios.',
-      tag: 'Zona Franca de Manaus',
-      date: 'mai 2026'
-    }];
+    var articleList = document.getElementById('articleList');
 
-    const articleList = document.getElementById('articleList');
+    function fmtDate(d) {
+      try { return new Date(d).toLocaleDateString('pt-BR', { year: 'numeric', month: 'short' }); }
+      catch(e) { return d || ''; }
+    }
 
-    articlesData.forEach(function(a) {
-      const row = document.createElement('div');
-      row.className = 'article-row';
-      row.innerHTML = `
-        <div class="meta"><span class="tag">${a.tag}</span><span>${a.date}</span></div>
-        <h4>${a.title}</h4>
-        <p>${a.excerpt}</p>
-        <a href="#" class="more pt">Ler artigo →</a>
-        <a href="#" class="more zh">阅读文章 →</a>
-      `;
-      articleList.appendChild(row);
-    });
+    fetch('articles/index.json')
+      .then(function(r) { return r.json(); })
+      .then(function(articles) {
+        articles.slice(0, 4).forEach(function(a) {
+          var row = document.createElement('div');
+          row.className = 'article-row';
+          row.innerHTML =
+            '<div class="meta"><span class="tag">' + a.tag + '</span><span>' + fmtDate(a.date) + '</span></div>' +
+            '<h4>' + a.title + '</h4>' +
+            '<p>' + a.excerpt + '</p>' +
+            '<a href="artigos/' + a.slug + '.html" class="more pt">Ler artigo →</a>' +
+            '<a href="artigos/' + a.slug + '.html" class="more zh">阅读文章 →</a>';
+          articleList.appendChild(row);
+        });
+      })
+      .catch(function() {
+        articleList.innerHTML = '<p style="color:#8B8680;font-size:14px;padding:20px 0;">Artigos em breve.</p>';
+      });
 
     // ============================================================
     // YEAR
@@ -1129,11 +1117,37 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // ============================================================
-    // CONTACT FORM (simulação)
+    // CONTACT FORM — Formspree
     // ============================================================
     document.getElementById('contactFormIOS').addEventListener('submit', function(e) {
       e.preventDefault();
-      alert('Mensagem enviada com sucesso! (simulação)');
+      var form = this;
+      var btn = document.getElementById('btnEnviar');
+      var feedback = document.getElementById('formFeedback');
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+      fetch('https://formspree.io/f/xeeykngl', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(r) {
+        if (r.ok) {
+          feedback.style.display = 'block';
+          feedback.style.color = '#2a7a4b';
+          feedback.textContent = '✓ Mensagem enviada. Retornaremos em breve.';
+          form.reset();
+          btn.textContent = 'Enviar mensagem';
+          btn.disabled = false;
+        } else {
+          throw new Error('erro');
+        }
+      }).catch(function() {
+        feedback.style.display = 'block';
+        feedback.style.color = '#c0392b';
+        feedback.textContent = 'Erro ao enviar. Tente pelo WhatsApp.';
+        btn.textContent = 'Enviar mensagem';
+        btn.disabled = false;
+      });
     });
   </script>
 
