@@ -4,580 +4,505 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>GAT — Gonçalves Advocacia Tributária</title>
-<meta name="description" content="Advocacia tributária para empresas e pessoas físicas. Defesa em autos de infração da Receita Federal e SEFAZ, planejamento fiscal, recuperação de créditos e Zona Franca de Manaus. Atendimento individualizado." />
+<meta name="description" content="Advocacia tributária em Manaus. Defesa em autos de infração, contencioso judicial, transação tributária e regime da Zona Franca de Manaus." />
+<meta name="theme-color" content="#FBFAF7" />
 <link rel="icon" type="image/png" href="img/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Instrument+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#FBFAF7;
+  --ink:#16181B;
+  --ink-soft:#1D2024;
+  --ink-2:#565B60;
+  --ink-3:#8B9096;
+  --hair:#E5E2DB;
+  --hair-2:#D8D4CB;
+  --hair-dark:rgba(251,250,247,0.12);
+  --hair-dark-2:rgba(251,250,247,0.22);
+  --paper-dark-2:rgba(251,250,247,0.62);
+  --paper-dark-3:rgba(251,250,247,0.42);
+  --green:#16443A;
+  --green-deep:#0E332B;
+  --green-lit:#7FA99C;
+  --green-wash:#F0F3F0;
+  --serif:'Newsreader',Georgia,serif;
+  --sans:'Instrument Sans',-apple-system,system-ui,sans-serif;
+  --han:'Noto Serif SC',serif;
+  --measure:66ch;
+  --gutter:clamp(20px,5vw,64px);
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-optical-sizing:auto;
+  font-size:18px;line-height:1.7;
+  font-feature-settings:'liga','onum';
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+::selection{background:var(--green);color:var(--paper)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:1px}
+[id]{scroll-margin-top:96px}
 
-  :root{
-    --ink:#161310;
-    --ink-soft:#2a2621;
-    --body:#4a463f;
-    --paper:#F4F1EA;
-    --paper-dim:#e8e4d9;
-    --stone:#8B8680;
-    --stone-light:#b3aea5;
-    --wine:#7A2530;
-    --wine-light:#9c3b46;
-    --line:rgba(22,19,16,0.12);
-    --line-soft:rgba(22,19,16,0.07);
-    --serif:'Cormorant Garamond',Georgia,serif;
-    --sans:'Inter',system-ui,sans-serif;
-    --han:'Noto Serif SC',serif;
-    --maxw:1180px;
-    /* tons quentes por seção */
-    --s-approach:#EFEDE8;   /* marfim claro */
-    --s-services:#E4E1DA;   /* areia quente */
-    --s-process:#EAE8E3;    /* pergaminho */
-    --s-articles:#E0DDD6;   /* linho */
-  }
+html[data-lang="pt"] .zh{display:none!important}
+html[data-lang="zh"] .pt{display:none!important}
+html[data-lang="zh"] body,
+html[data-lang="zh"] h1,html[data-lang="zh"] h2,html[data-lang="zh"] h3{font-family:var(--han);line-height:1.85}
 
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--paper);color:var(--ink);
-    font-family:var(--sans);font-weight:300;line-height:1.65;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;
-  }
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--gutter)}
+.label{
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:0.22em;text-transform:uppercase;color:var(--green);
+}
 
-  /* language visibility */
-  html[data-lang="pt"] .zh{display:none !important}
-  html[data-lang="zh"] .pt{display:none !important}
-  html[data-lang="zh"] body{font-family:var(--han)}
-  html[data-lang="zh"] .display,html[data-lang="zh"] h1,
-  html[data-lang="zh"] h2,html[data-lang="zh"] h3{font-family:var(--han)}
+/* ---------- nav ---------- */
+header{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--paper) 90%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .35s var(--ease);
+}
+header.scrolled{border-bottom-color:var(--hair)}
+.nav{display:flex;align-items:baseline;justify-content:space-between;padding:22px 0 20px;gap:24px}
+.brand{display:flex;flex-direction:column;line-height:1.15}
+.brand b{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:0.01em}
+.brand small{
+  font-family:var(--sans);font-size:10px;font-weight:500;
+  letter-spacing:0.24em;text-transform:uppercase;color:var(--ink-3);margin-top:2px;
+}
+.nav-right{display:flex;align-items:center;gap:28px}
+.nav-links{display:flex;gap:26px}
+.nav-links a{
+  font-family:var(--sans);font-size:12.5px;font-weight:500;letter-spacing:0.06em;
+  color:var(--ink-2);padding:4px 0;position:relative;transition:color .3s var(--ease);
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:var(--green);transform:scaleX(0);transform-origin:right;
+  transition:transform .45s var(--ease);
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.lang{display:flex;border:1px solid var(--hair);border-radius:2px;overflow:hidden}
+.lang button{
+  appearance:none;background:none;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:0.08em;
+  padding:5px 11px;color:var(--ink-3);transition:background .3s var(--ease),color .3s var(--ease);
+}
+.lang button.active{background:var(--ink);color:var(--paper)}
+.lang button:not(.active):hover{color:var(--ink)}
 
-  a{color:inherit;text-decoration:none}
-  img{display:block;max-width:100%}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+/* ---------- hero: entrada orquestrada ---------- */
+.hero{padding:clamp(76px,13vh,150px) 0 clamp(60px,10vh,110px);overflow:hidden}
+.hero .label{display:block;margin-bottom:28px}
+.hero h1{
+  font-weight:400;font-size:clamp(38px,6.4vw,72px);
+  line-height:1.12;letter-spacing:-0.014em;max-width:18ch;text-wrap:balance;
+}
+.hero h1 em{font-style:italic}
+.hero .lede{
+  margin-top:32px;max-width:54ch;
+  font-size:clamp(18px,2vw,20px);line-height:1.75;color:var(--ink-2);
+}
+.hero-cta{margin-top:44px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.hero-note{font-family:var(--sans);font-size:12px;color:var(--ink-3);letter-spacing:0.03em}
 
-  .eyebrow{font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--wine)}
-  html[data-lang="zh"] .eyebrow{letter-spacing:.12em}
+.rise{opacity:0;transform:translateY(26px);animation:rise .9s var(--ease) forwards}
+.rise:nth-child(1){animation-delay:.05s}
+.rise:nth-child(2){animation-delay:.18s}
+.rise:nth-child(3){animation-delay:.32s}
+.rise:nth-child(4){animation-delay:.46s}
+@keyframes rise{to{opacity:1;transform:none}}
 
-  /* ---------- SCROLL PROGRESS ---------- */
-  #progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--wine);z-index:200;transition:width .1s}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:0.05em;
+  padding:13px 26px;border:1px solid var(--ink);border-radius:2px;
+  position:relative;overflow:hidden;transition:color .35s var(--ease);
+}
+.btn::before{
+  content:'';position:absolute;inset:0;background:var(--ink);
+  transform:scaleY(0);transform-origin:bottom;transition:transform .4s var(--ease);z-index:0;
+}
+.btn:hover{color:var(--paper)}
+.btn:hover::before{transform:scaleY(1)}
+.btn>*{position:relative;z-index:1}
+.btn svg{width:15px;height:15px;flex:none}
 
-  /* ---------- CUSTOM CURSOR ---------- */
-  .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;border-radius:50%;
-    transform:translate(-50%,-50%);z-index:9999}
-  .cursor-dot{width:7px;height:7px;background:var(--wine)}
-  .cursor-ring{width:34px;height:34px;border:1px solid var(--wine);opacity:.45;z-index:9998;
-    transition:width .28s ease,height .28s ease,opacity .28s ease,background .28s ease}
-  body.cursor-hover .cursor-ring{width:52px;height:52px;opacity:.7;background:rgba(122,37,48,.06)}
-  @media (hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
-  @media (prefers-reduced-motion:reduce){.cursor-dot,.cursor-ring{display:none}}
+/* ---------- seções ---------- */
+section{padding:clamp(68px,11vh,120px) 0}
+.sec-head{margin-bottom:clamp(44px,7vh,72px)}
+.sec-head .label{display:block;margin-bottom:18px}
+.sec-head h2{
+  font-weight:400;font-size:clamp(28px,3.8vw,42px);
+  line-height:1.18;letter-spacing:-0.012em;max-width:26ch;text-wrap:balance;
+}
 
-  /* ---------- NAV ---------- */
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:18px 32px;background:rgba(244,241,234,0.85);
-    backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid transparent;
-    transition:border-color .3s,padding .3s}
-  nav.scrolled{border-bottom-color:var(--line);padding:12px 32px}
-  .brand{display:flex;align-items:center;gap:13px}
-  .brand-mark{width:38px;height:38px;flex:none;background:var(--ink);color:var(--paper);
-    display:flex;align-items:center;justify-content:center;
-    font-family:var(--serif);font-weight:600;font-size:17px;position:relative}
-  .brand-mark::after{content:'';position:absolute;inset:4px;border:1px solid rgba(244,241,234,0.4)}
-  .brand-mark sup{font-size:9px;top:-.6em}
-  .brand-txt{display:flex;flex-direction:column;line-height:1.05}
-  .brand-txt b{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.02em}
-  .brand-txt span{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--stone);font-weight:400}
+/* ---------- PRÁTICA: bloco escuro ---------- */
+.practice-sec{background:var(--ink);color:var(--paper)}
+.practice-sec .label{color:var(--green-lit)}
+.practice-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;background:var(--hair-dark);
+  border-top:1px solid var(--hair-dark);border-bottom:1px solid var(--hair-dark);
+}
+.pr-item{
+  background:var(--ink);padding:36px 34px 38px;
+  position:relative;overflow:hidden;
+  transition:background .4s var(--ease);
+}
+.pr-item::after{
+  content:'';position:absolute;left:0;top:0;height:2px;width:100%;
+  background:var(--green-lit);transform:scaleX(0);transform-origin:left;
+  transition:transform .5s var(--ease);
+}
+.pr-item:hover{background:var(--ink-soft)}
+.pr-item:hover::after{transform:scaleX(1)}
+.pr-item h3{
+  font-weight:500;font-size:21px;line-height:1.3;letter-spacing:-0.005em;
+  margin-bottom:14px;
+}
+.pr-item p{font-size:15.5px;line-height:1.75;color:var(--paper-dark-2);max-width:44ch}
 
-  .nav-links{display:flex;align-items:center;gap:32px}
-  .nav-links a{font-size:13px;font-weight:400;letter-spacing:.04em;color:var(--ink-soft);position:relative;padding:4px 0}
-  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--wine);transition:width .28s ease}
-  .nav-links a:hover::after{width:100%}
+/* ---------- MÉTODO: declaração em faixa clara ---------- */
+.method{padding:clamp(80px,13vh,150px) 0}
+.method .statement{
+  font-size:clamp(26px,3.8vw,42px);
+  line-height:1.35;font-weight:400;letter-spacing:-0.01em;
+  max-width:26ch;text-wrap:balance;
+}
+.method .statement em{font-style:italic;color:var(--green)}
+.method .support{
+  margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);
+  gap:clamp(24px,4vw,56px);max-width:900px;
+}
+.method .support>div{border-top:1px solid var(--hair-2);padding-top:18px}
+.method .support h3{
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--green);margin-bottom:10px;
+}
+.method .support p{font-size:15.5px;line-height:1.7;color:var(--ink-2)}
 
-  .lang-toggle{display:flex;align-items:center;font-size:12px;font-weight:500;border:1px solid var(--line);border-radius:2px;overflow:hidden}
-  .lang-toggle button{background:none;border:none;cursor:pointer;padding:6px 11px;color:var(--stone);font:inherit;font-weight:500;letter-spacing:.05em;transition:background .2s,color .2s}
-  .lang-toggle button.active{background:var(--ink);color:var(--paper)}
+/* ---------- ARTIGOS ---------- */
+.articles{background:var(--green-wash)}
+.art-list{display:flex;flex-direction:column}
+.art-item{
+  display:grid;grid-template-columns:minmax(110px,160px) 1fr auto;
+  gap:clamp(16px,3vw,44px);align-items:baseline;
+  padding:28px 18px;margin:0 -18px;border-top:1px solid var(--hair-2);
+  transition:background .35s var(--ease),padding-left .35s var(--ease);
+}
+.art-item:last-child{border-bottom:1px solid var(--hair-2)}
+.art-item:hover{background:var(--paper);padding-left:28px}
+.art-item time{
+  font-family:var(--sans);font-size:12px;color:var(--ink-3);
+  letter-spacing:0.05em;font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.art-item h3{
+  font-weight:500;font-size:19px;line-height:1.4;letter-spacing:-0.005em;
+  max-width:40ch;text-wrap:balance;
+}
+.art-item .arrow{color:var(--ink-3);align-self:center;transition:color .35s var(--ease),transform .35s var(--ease)}
+.art-item:hover .arrow{color:var(--green);transform:translateX(4px)}
+.art-item .arrow svg{width:18px;height:18px;display:block}
 
-  .nav-cta{font-size:12.5px;font-weight:500;letter-spacing:.03em;padding:9px 18px;border:1px solid var(--ink);color:var(--ink);transition:background .25s,color .25s}
-  .nav-cta:hover{background:var(--ink);color:var(--paper)}
+/* ---------- CONTATO: bloco verde profundo ---------- */
+.contact{background:var(--green-deep);color:var(--paper)}
+.contact .label{color:var(--green-lit)}
+.contact-grid{
+  display:grid;grid-template-columns:1fr minmax(280px,360px);
+  gap:clamp(36px,7vw,96px);align-items:start;
+}
+.contact-text p{max-width:48ch;font-size:18px;line-height:1.8;color:var(--paper-dark-2)}
+.contact-text p strong{color:var(--paper);font-weight:500}
+.contact-card{border-top:2px solid var(--paper);padding-top:24px}
+.contact-card dt{
+  font-family:var(--sans);font-size:10.5px;font-weight:600;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--paper-dark-3);
+}
+.contact-card dd{
+  font-size:16.5px;margin:4px 0 18px;line-height:1.5;
+  font-variant-numeric:tabular-nums;color:var(--paper);
+}
+.contact-card dd a{border-bottom:1px solid var(--hair-dark-2);transition:border-color .3s var(--ease)}
+.contact-card dd a:hover{border-color:var(--paper)}
+.btn-light{border-color:var(--paper);color:var(--paper)}
+.btn-light::before{background:var(--paper)}
+.btn-light:hover{color:var(--green-deep)}
 
-  .menu-btn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
-  .menu-btn span{width:22px;height:1.5px;background:var(--ink);transition:.3s}
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--hair);padding:44px 0 52px}
+.foot{display:flex;flex-direction:column;gap:20px}
+.foot-oab{max-width:78ch;font-family:var(--sans);font-size:11.5px;line-height:1.75;color:var(--ink-3)}
+.foot-line{
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--sans);font-size:11.5px;color:var(--ink-3);letter-spacing:0.03em;
+}
 
-  /* ---------- HERO ---------- */
-  header.hero{height:100vh;min-height:600px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-items:stretch;position:relative;
-    padding:96px 0 48px;overflow:hidden;background:var(--ink);color:var(--paper)}
-  .hero-inner{width:100%}
-  .hero-bg-mark{position:absolute;right:-8%;top:50%;transform:translateY(-50%);
-    font-family:var(--serif);font-size:min(52vw,720px);font-weight:600;
-    color:rgba(244,241,234,0.035);line-height:.8;pointer-events:none;user-select:none;letter-spacing:-.03em;z-index:0}
-  .hero-inner{position:relative;z-index:2}
-  .hero-inner>*{max-width:860px}
-  .hero .eyebrow{color:var(--stone-light)}
-  .hero-rule{width:44px;height:1px;background:var(--wine);margin:18px 0 24px}
-  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,7vw,86px);line-height:1.02;letter-spacing:-.01em;color:var(--paper)}
-  .hero h1 em{font-style:italic;color:var(--stone-light)}
-  html[data-lang="zh"] .hero h1{font-weight:500;line-height:1.22;letter-spacing:.02em}
-  .hero p.lead{margin-top:24px;max-width:580px;font-size:clamp(15px,1.7vw,18px);color:rgba(244,241,234,0.72);font-weight:300;line-height:1.75}
-  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
-  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:500;letter-spacing:.02em;padding:14px 26px;transition:.25s;cursor:pointer;border:1px solid}
-  .btn-primary{background:var(--paper);color:var(--ink);border-color:var(--paper)}
-  .btn-primary:hover{background:transparent;color:var(--paper)}
-  .btn-ghost{background:transparent;color:var(--paper);border-color:rgba(244,241,234,0.3)}
-  .btn-ghost:hover{border-color:var(--paper)}
-  .btn svg{width:16px;height:16px}
+/* ---------- reveals escalonados ---------- */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.stagger.in>*{opacity:1;transform:none}
+.stagger.in>*:nth-child(1){transition-delay:.05s}
+.stagger.in>*:nth-child(2){transition-delay:.14s}
+.stagger.in>*:nth-child(3){transition-delay:.23s}
+.stagger.in>*:nth-child(4){transition-delay:.32s}
+.stagger.in>*:nth-child(5){transition-delay:.41s}
+.stagger.in>*:nth-child(6){transition-delay:.50s}
 
-  /* ---------- SECTION SCAFFOLD ---------- */
-  section{padding:104px 0}
-  .sec-head{max-width:760px;margin-bottom:56px}
-  .sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-.01em;margin-top:16px}
-  html[data-lang="zh"] .sec-head h2{line-height:1.32;letter-spacing:.02em}
-  .sec-head p{margin-top:20px;color:var(--body);font-size:16.5px;max-width:640px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rise,.reveal,.stagger>*{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+  .btn::before,.pr-item::after,.nav-links a::after{transition:none!important}
+}
 
-  /* ---------- ABORDAGEM (approach) ---------- */
-  .approach{background:var(--s-approach)}
-  .approach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-  .ap{background:#EFEDE8;padding:36px 28px;transition:background .3s}
-  .ap:hover{background:#f7f6f3}
-  .ap .n{font-family:var(--serif);font-size:15px;color:var(--wine);letter-spacing:.05em;margin-bottom:22px}
-  .ap h3{font-family:var(--serif);font-weight:600;font-size:21px;line-height:1.2;margin-bottom:11px}
-  html[data-lang="zh"] .ap h3{line-height:1.4}
-  .ap p{font-size:14px;color:var(--body);line-height:1.62}
-
-  /* ---------- SERVICES ---------- */
-  .services{background:var(--s-services)}
-  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-  .svc{background:#E4E1DA;padding:38px 32px;position:relative;transition:background .3s;min-height:236px;display:flex;flex-direction:column}
-  .svc:hover{background:#efede8}
-  .svc .idx{font-family:var(--serif);font-size:15px;color:var(--wine);letter-spacing:.05em;margin-bottom:auto}
-  .svc h3{font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.2;margin:24px 0 12px;letter-spacing:-.005em}
-  html[data-lang="zh"] .svc h3{line-height:1.4}
-  .svc p{font-size:14.5px;color:var(--body);line-height:1.65}
-
-  /* ---------- CLIENT PROFILES ---------- */
-  .clients{background:var(--ink);color:var(--paper)}
-  .clients .eyebrow{color:var(--stone-light)}
-  .clients .sec-head h2{color:var(--paper)}
-  .clients .sec-head p{color:rgba(244,241,234,0.7)}
-  .cli-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(244,241,234,0.14);border:1px solid rgba(244,241,234,0.14)}
-  .cli{background:var(--ink);padding:38px 34px;transition:background .3s}
-  .cli:hover{background:var(--ink-soft)}
-  .cli h3{font-family:var(--serif);font-weight:600;font-size:22px;color:var(--paper);margin-bottom:12px;display:flex;align-items:baseline;gap:12px}
-  .cli h3 .mk{font-size:13px;color:var(--wine-light);font-family:var(--sans);font-weight:500;letter-spacing:.1em}
-  .cli p{font-size:14.5px;color:rgba(244,241,234,0.66);line-height:1.7}
-
-  /* ---------- PROCESS ---------- */
-  .process{background:var(--s-process)}
-  .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
-  .proc{position:relative;padding-top:30px;border-top:2px solid var(--ink);transition:border-color .3s}
-  .proc:hover{border-top-color:var(--wine)}
-  .proc .step{position:absolute;top:-14px;left:0;font-family:var(--serif);font-size:13px;font-weight:600;color:var(--paper);background:var(--wine);width:26px;height:26px;display:flex;align-items:center;justify-content:center}
-  .proc h3{font-family:var(--serif);font-weight:600;font-size:20px;margin-bottom:10px;margin-top:6px}
-  html[data-lang="zh"] .proc h3{line-height:1.4}
-  .proc p{font-size:14px;color:var(--body);line-height:1.6}
-
-  /* ---------- ARTICLES ---------- */
-  .articles{background:var(--s-articles)}
-  .art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
-  .art-card{display:flex;flex-direction:column;border-top:2px solid var(--ink);padding-top:22px;transition:border-color .3s;background:transparent}
-  .art-card:hover{border-top-color:var(--wine)}
-  .art-card .meta{display:flex;gap:10px;align-items:center;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);margin-bottom:14px}
-  .art-card .meta .tag{color:var(--wine);font-weight:500}
-  .art-card h3{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.25;margin-bottom:12px}
-  html[data-lang="zh"] .art-card h3{line-height:1.45}
-  .art-card p{font-size:14.5px;color:var(--body);line-height:1.6;margin-bottom:18px;flex:1}
-  .art-card .more{font-size:13px;font-weight:500;color:var(--ink);display:inline-flex;align-items:center;gap:7px}
-  .art-card .more svg{width:14px;height:14px;transition:transform .25s}
-  .art-card:hover .more svg{transform:translateX(4px)}
-  .art-empty{grid-column:1/-1;padding:60px;text-align:center;border:1px dashed var(--line);color:var(--stone);font-size:15px}
-  .art-all{margin-top:48px;text-align:center}
-
-  /* ---------- CONTACT ---------- */
-  .contact{background:var(--ink);color:var(--paper)}
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .contact .eyebrow{color:var(--stone-light)}
-  .contact h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4.4vw,52px);line-height:1.08;margin-top:16px;color:var(--paper)}
-  html[data-lang="zh"] .contact h2{line-height:1.3}
-  .contact p{margin-top:20px;color:rgba(244,241,234,0.72);font-size:16.5px;line-height:1.75;max-width:480px}
-  .contact-card{border:1px solid rgba(244,241,234,0.16);padding:40px}
-  .contact-row{padding:18px 0;border-bottom:1px solid rgba(244,241,234,0.12)}
-  .contact-row:last-child{border-bottom:none}
-  .contact-row .k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--stone-light);margin-bottom:6px}
-  .contact-row .v{font-family:var(--serif);font-size:20px;color:var(--paper)}
-  .contact-row a.v{transition:color .2s}
-  .contact-row a.v:hover{color:var(--stone-light)}
-  .wa-btn{display:inline-flex;align-items:center;gap:10px;margin-top:30px;background:var(--paper);color:var(--ink);padding:15px 28px;font-size:14.5px;font-weight:500;transition:.25s;width:100%;justify-content:center}
-  .wa-btn:hover{background:var(--stone-light)}
-  .wa-btn svg{width:18px;height:18px}
-
-  /* ---------- FOOTER ---------- */
-  footer{background:var(--ink);color:var(--paper);padding:60px 0 40px;border-top:1px solid rgba(244,241,234,0.1)}
-  .foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
-  .foot-brand .brand-txt b{color:var(--paper)}
-  .foot-info{font-size:13px;color:rgba(244,241,234,0.6);line-height:1.9;text-align:right}
-  .foot-info strong{color:rgba(244,241,234,0.85);font-weight:500}
-  .foot-bottom{margin-top:44px;padding-top:24px;border-top:1px solid rgba(244,241,234,0.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(244,241,234,0.45)}
-  .foot-oab{max-width:660px;font-size:11.5px;color:rgba(244,241,234,0.4);line-height:1.7;margin-top:20px}
-
-  /* ---------- REVEAL ---------- */
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-
-  /* ---------- GRAIN TEXTURE ---------- */
-  header.hero::after{
-    content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
-    opacity:.038;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size:200px 200px;
-  }
-  header.hero .wrap{position:relative;z-index:2}
-
-  /* ---------- MAGNETIC BUTTONS ---------- */
-  .btn,.nav-cta{transition:.25s,transform .18s ease-out}
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width:1000px){
-    .approach-grid,.proc-grid{grid-template-columns:1fr 1fr}
-  }
-  @media (max-width:900px){
-    .contact-grid{grid-template-columns:1fr;gap:44px}
-    .svc-grid,.art-grid,.cli-grid{grid-template-columns:1fr 1fr}
-    .hero-bg-mark{font-size:80vw;right:-20%}
-  }
-  @media (max-width:720px){
-    nav{padding:14px 20px}nav.scrolled{padding:10px 20px}
-    .wrap{padding:0 20px}
-    .nav-links{position:fixed;top:0;right:0;height:100vh;width:80%;max-width:330px;
-      background:var(--ink);flex-direction:column;align-items:flex-start;justify-content:center;
-      gap:26px;padding:0 36px;transform:translateX(100%);transition:transform .35s ease;z-index:99}
-    .nav-links.open{transform:none}
-    .nav-links a{color:var(--paper);font-size:17px}
-    .nav-links a::after{background:var(--stone-light)}
-    .nav-links .nav-cta{border-color:var(--paper);color:var(--paper)}
-    .nav-links .nav-cta:hover{background:var(--paper);color:var(--ink)}
-    .menu-btn{display:flex;z-index:101}
-    .menu-btn.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);background:var(--paper)}
-    .menu-btn.open span:nth-child(2){opacity:0}
-    .menu-btn.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);background:var(--paper)}
-    .approach-grid,.svc-grid,.art-grid,.cli-grid,.proc-grid{grid-template-columns:1fr}
-    section{padding:76px 0}
-    .foot-grid{flex-direction:column}.foot-info{text-align:left}
-  }
+@media(max-width:860px){
+  .nav-links{display:none}
+  .practice-grid{grid-template-columns:1fr}
+  .method .support{grid-template-columns:1fr;gap:28px}
+  .contact-grid{grid-template-columns:1fr}
+  .art-item{grid-template-columns:1fr auto}
+  .art-item time{grid-column:1/-1;order:-1}
+}
 </style>
 </head>
 <body>
 
-<div id="progress"></div>
-<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
-<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
-
-<!-- NAV -->
-<nav id="nav">
-  <a class="brand" href="#top" aria-label="GAT — Gonçalves Advocacia Tributária">
-    <span class="brand-mark">GA<sup>T</sup></span>
-    <span class="brand-txt">
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="GAT — Gonçalves Advocacia Tributária">
       <b>Gonçalves</b>
-      <span class="pt">Advocacia Tributária</span>
-      <span class="zh">税务律师事务所</span>
-    </span>
-  </a>
-  <div class="nav-links" id="navLinks">
-    <a href="#abordagem" class="pt">A abordagem</a><a href="#abordagem" class="zh">我们的方法</a>
-    <a href="#areas" class="pt">Áreas</a><a href="#areas" class="zh">业务领域</a>
-    <a href="#perfil" class="pt">Clientes</a><a href="#perfil" class="zh">客户群体</a>
-    <a href="#processo" class="pt">Atendimento</a><a href="#processo" class="zh">服务流程</a>
-    <a href="#artigos" class="pt">Artigos</a><a href="#artigos" class="zh">文章</a>
-    <a href="#contato" class="pt">Contato</a><a href="#contato" class="zh">联系</a>
-    <a href="https://wa.me/5592981267195" class="nav-cta pt" target="_blank" rel="noopener">Fale conosco</a>
-    <a href="https://wa.me/5592981267195" class="nav-cta zh" target="_blank" rel="noopener">联系我们</a>
-  </div>
-  <div style="display:flex;align-items:center;gap:14px">
-    <div class="lang-toggle" role="group" aria-label="Idioma / 语言">
-      <button data-set-lang="pt" class="active">PT</button>
-      <button data-set-lang="zh">中文</button>
-    </div>
-    <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero" id="top">
-  <div class="hero-bg-mark" aria-hidden="true">GA</div>
-  <div class="wrap hero-inner">
-    <p class="eyebrow pt">GAT · Advocacia Tributária</p>
-    <p class="eyebrow zh">GAT · 税务律师事务所</p>
-    <div class="hero-rule"></div>
-    <h1 class="pt">Direito tributário,<br><em>caso a caso.</em></h1>
-    <h1 class="zh">税法服务，<br><em>一案一议。</em></h1>
-    <p class="lead pt">Advocacia tributária para empresas e pessoas físicas, com atendimento individualizado. Cada caso é conduzido por um advogado que o conhece a fundo — não por uma linha de montagem. Atuação em todo o Brasil.</p>
-    <p class="lead zh">为企业与个人提供一对一的税务法律服务。每一宗案件都由深入了解案情的律师亲自负责，绝非流水线作业。服务范围覆盖全巴西。</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary pt" href="https://wa.me/5592981267195" target="_blank" rel="noopener">
-        Falar pelo WhatsApp
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn btn-primary zh" href="https://wa.me/5592981267195" target="_blank" rel="noopener">
-        WhatsApp 咨询
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn btn-ghost pt" href="#areas">Áreas de atuação</a>
-      <a class="btn btn-ghost zh" href="#areas">业务领域</a>
+      <small class="pt">Advocacia Tributária</small>
+      <small class="zh">税务律师事务所</small>
+    </a>
+    <div class="nav-right">
+      <nav class="nav-links" aria-label="Seções">
+        <a href="#pratica"><span class="pt">Prática</span><span class="zh">业务</span></a>
+        <a href="#metodo"><span class="pt">Método</span><span class="zh">方法</span></a>
+        <a href="#artigos"><span class="pt">Artigos</span><span class="zh">文章</span></a>
+        <a href="#contato"><span class="pt">Contato</span><span class="zh">联系</span></a>
+      </nav>
+      <div class="lang" role="group" aria-label="Idioma">
+        <button data-set-lang="pt" class="active" type="button">PT</button>
+        <button data-set-lang="zh" type="button">中文</button>
+      </div>
     </div>
   </div>
 </header>
 
-<!-- ABORDAGEM -->
-<section class="approach" id="abordagem">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow pt">A abordagem</p>
-      <p class="eyebrow zh">我们的方法</p>
-      <h2 class="pt">Atenção dedicada, do diagnóstico à decisão.</h2>
-      <h2 class="zh">全程专注，从诊断到裁决。</h2>
-      <p class="pt">A GAT não é um escritório de volume. Cada cliente conta com um advogado que conhece o caso em profundidade e acompanha cada etapa — sem processos genéricos, sem terceirização de atenção.</p>
-      <p class="zh">GAT 不是一家"量产型"事务所。每位客户都由深入了解案情、全程跟进的律师负责，绝无千篇一律的流程，绝不敷衍。</p>
-    </div>
-    <div class="approach-grid">
-      <div class="ap reveal"><div class="n">01</div><h3 class="pt">Diagnóstico do caso</h3><h3 class="zh">案情诊断</h3><p class="pt">Antes de qualquer recomendação, entendemos os fatos, os documentos e a exigência fiscal em detalhe.</p><p class="zh">在提出任何建议之前，我们先详细梳理事实、文件与税务主张。</p></div>
-      <div class="ap reveal"><div class="n">02</div><h3 class="pt">Solução sob medida</h3><h3 class="zh">量身定制方案</h3><p class="pt">A estratégia é construída para a realidade específica do cliente. Cada caso é tratado em sua singularidade.</p><p class="zh">策略依据客户的具体情况量身打造，每一宗案件都区别对待。</p></div>
-      <div class="ap reveal"><div class="n">03</div><h3 class="pt">Linguagem clara</h3><h3 class="zh">清晰沟通</h3><p class="pt">Explicamos o que está sendo feito e por quê, em termos que o cliente e seu contador acompanham.</p><p class="zh">我们以客户及其会计师都能理解的方式，说明所做工作及其缘由。</p></div>
-      <div class="ap reveal"><div class="n">04</div><h3 class="pt">Acompanhamento próximo</h3><h3 class="zh">持续跟进</h3><p class="pt">Do início ao fim, o mesmo advogado conduz o caso e mantém o cliente informado sobre cada andamento.</p><p class="zh">自始至终由同一位律师负责，及时向客户通报每一步进展。</p></div>
-    </div>
-  </div>
-</section>
+<main id="top">
 
-<!-- SERVICES -->
-<section class="services" id="areas">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow pt">Áreas de atuação</p>
-      <p class="eyebrow zh">业务领域</p>
-      <h2 class="pt">Tributário é o nosso núcleo.</h2>
-      <h2 class="zh">税务是我们的核心。</h2>
-      <p class="pt">Atuamos na defesa de autuações, no planejamento fiscal, na recuperação de créditos, na execução fiscal e nos incentivos da Zona Franca de Manaus — para empresas e pessoas físicas.</p>
-      <p class="zh">我们涵盖税务处罚辩护、税务筹划、税额抵免追回、税务强制执行，以及玛瑙斯自由贸易区税收优惠——服务企业与个人。</p>
-    </div>
-    <div class="svc-grid">
-      <div class="svc reveal"><div class="idx">01</div><h3 class="pt">Defesa em Autuações Fiscais</h3><h3 class="zh">税务处罚辩护</h3><p class="pt">Impugnações e recursos administrativos contra autos de infração da Receita Federal e da SEFAZ, com defesa judicial quando necessária.</p><p class="zh">针对联邦税务局及州财政厅处罚决定的行政异议与上诉，必要时提供司法辩护。</p></div>
-      <div class="svc reveal"><div class="idx">02</div><h3 class="pt">Planejamento Tributário</h3><h3 class="zh">税务筹划</h3><p class="pt">Estruturação fiscal para reduzir legalmente a carga tributária: análise do regime adequado, revisão de operações e uso de benefícios aplicáveis.</p><p class="zh">通过合法途径优化税负：分析适用税制、审查经营活动、运用适用的税收优惠。</p></div>
-      <div class="svc reveal"><div class="idx">03</div><h3 class="pt">Recuperação de Créditos</h3><h3 class="zh">税额抵免追回</h3><p class="pt">Revisão fiscal para identificar e recuperar tributos pagos indevidamente ou a maior — PIS, COFINS, ICMS, ISS e outros.</p><p class="zh">税务复核，识别并追回多缴或误缴的税款——PIS、COFINS、ICMS、ISS 等。</p></div>
-      <div class="svc reveal"><div class="idx">04</div><h3 class="pt">Execução Fiscal</h3><h3 class="zh">税务强制执行</h3><p class="pt">Defesa técnica em execuções fiscais, embargos e exceções de pré-executividade nas esferas federal e estadual.</p><p class="zh">在联邦及州层面就税务强制执行提供专业辩护，包括执行异议与先决抗辩。</p></div>
-      <div class="svc reveal"><div class="idx">05</div><h3 class="pt">Zona Franca de Manaus</h3><h3 class="zh">玛瑙斯自由贸易区</h3><p class="pt">Assessoria nos incentivos fiscais da ZFM, regularidade perante a SUFRAMA e estruturação de operações na região.</p><p class="zh">就自贸区税收优惠、SUFRAMA 合规及区域经营架构提供咨询。</p></div>
-      <div class="svc reveal"><div class="idx">06</div><h3 class="pt">Pessoa Física</h3><h3 class="zh">个人税务</h3><p class="pt">Revisão de imposto de renda, tributação de investimentos e regularização fiscal para profissionais, empresários e investidores.</p><p class="zh">为专业人士、企业主与投资者提供个税复核、投资税务及税务合规服务。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- CLIENT PROFILES -->
-<section class="clients" id="perfil">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow pt">Perfil dos nossos clientes</p>
-      <p class="eyebrow zh">客户群体</p>
-      <h2 class="pt">Quem atendemos</h2>
-      <h2 class="zh">我们服务的对象</h2>
-      <p class="pt">Empresas e pessoas físicas que precisam de uma discussão tributária conduzida com profundidade e atenção real ao caso.</p>
-      <p class="zh">需要以专业深度和真正个案关注来处理税务争议的企业与个人。</p>
-    </div>
-    <div class="cli-grid">
-      <div class="cli reveal"><h3 class="pt"><span class="mk">01</span>A empresa que recebeu uma cobrança do Fisco</h3><h3 class="zh"><span class="mk">01</span>收到税务机关征收通知的企业</h3><p class="pt">Recebeu uma notificação, um auto ou uma execução e precisa entender o que está em jogo — e o que fazer antes que os prazos se fechem.</p><p class="zh">收到通知、处罚决定或强制执行，需要厘清风险所在，并在期限届满前明确应对之策。</p></div>
-      <div class="cli reveal"><h3 class="pt"><span class="mk">02</span>O contador que precisa de um parceiro jurídico</h3><h3 class="zh"><span class="mk">02</span>需要法律伙伴的会计师</h3><p class="pt">Tem clientes com passivo tributário ou exigências fiscais que saem do escopo contábil e precisam de condução jurídica especializada.</p><p class="zh">客户面临税务负债或财务核算范围以外的税务主张，需要专业法律支持来推进处理。</p></div>
-      <div class="cli reveal"><h3 class="pt"><span class="mk">03</span>A empresa que quer operar na Zona Franca</h3><h3 class="zh"><span class="mk">03</span>希望进驻自贸区的企业</h3><p class="pt">Está avaliando ou já estruturando presença no Polo Industrial de Manaus e precisa navegar o regime de incentivos com segurança regulatória.</p><p class="zh">正在评估或筹建玛瑙斯工业园区业务，需要在合规框架内稳妥运用税收优惠政策。</p></div>
-      <div class="cli reveal"><h3 class="pt"><span class="mk">04</span>O profissional ou investidor com pendência fiscal</h3><h3 class="zh"><span class="mk">04</span>有税务待处理事项的专业人士或投资者</h3><p class="pt">Tem uma situação tributária que precisa ser resolvida — revisão de imposto de renda, tributação de investimentos ou regularização de débitos.</p><p class="zh">面临需要处理的税务情况——个税复核、投资税务或债务合规。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="process" id="processo">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow pt">O atendimento</p>
-      <p class="eyebrow zh">服务流程</p>
-      <h2 class="pt">Do primeiro contato ao acompanhamento.</h2>
-      <h2 class="zh">从初次联系到持续跟进。</h2>
-      <p class="pt">Um caminho claro, com escopo e honorários definidos antes de começar. Para clientes empresariais, o relacionamento pode seguir em acompanhamento jurídico contínuo.</p>
-      <p class="zh">流程清晰，开始前即明确范围与费用。对企业客户，合作可延续为持续的法律陪伴服务。</p>
-    </div>
-    <div class="proc-grid">
-      <div class="proc reveal"><div class="step">1</div><h3 class="pt">Primeira conversa</h3><h3 class="zh">初次沟通</h3><p class="pt">Entendemos o contexto, o problema fiscal e o que o cliente precisa resolver.</p><p class="zh">了解背景、涉税问题以及客户需要解决的核心诉求。</p></div>
-      <div class="proc reveal"><div class="step">2</div><h3 class="pt">Diagnóstico</h3><h3 class="zh">诊断分析</h3><p class="pt">Análise do caso ou da situação fiscal, com identificação de riscos e caminhos.</p><p class="zh">分析处罚决定或税务状况，识别风险与可行路径。</p></div>
-      <div class="proc reveal"><div class="step">3</div><h3 class="pt">Proposta</h3><h3 class="zh">方案提议</h3><p class="pt">Plano de ação com escopo claro, prazos e honorários definidos de forma transparente.</p><p class="zh">提出行动方案，明确范围、期限与透明的收费标准。</p></div>
-      <div class="proc reveal"><div class="step">4</div><h3 class="pt">Condução</h3><h3 class="zh">案件执行</h3><p class="pt">Execução da defesa ou da medida, com comunicação próxima sobre cada andamento.</p><p class="zh">执行辩护或相关措施，并就每一步进展保持密切沟通。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ARTICLES -->
-<section class="articles" id="artigos">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow pt">Publicações e artigos</p>
-      <p class="eyebrow zh">出版物与文章</p>
-      <h2 class="pt">Análises em direito tributário.</h2>
-      <h2 class="zh">税法分析。</h2>
-      <p class="pt">Análises sobre contencioso tributário, incentivos da Zona Franca de Manaus e temas do dia a dia fiscal de empresas e contadores.</p>
-      <p class="zh">关于税务处罚、玛瑙斯自贸区优惠，以及企业与会计师日常涉税实务的文章。</p>
-    </div>
-    <div class="art-grid" id="artGrid">
-      <div class="art-empty pt">Os artigos aparecerão aqui assim que forem publicados.</div>
-      <div class="art-empty zh">文章发布后将显示于此。</div>
-    </div>
-    <div class="art-all" style="display:none" id="artAll">
-      <a class="btn btn-ghost pt" href="artigos/" style="border-color:var(--line);color:var(--ink)">Ver todos os artigos</a>
-      <a class="btn btn-ghost zh" href="artigos/" style="border-color:var(--line);color:var(--ink)">查看全部文章</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contato">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div class="reveal">
-        <p class="eyebrow pt">Fale conosco</p>
-        <p class="eyebrow zh">联系我们</p>
-        <h2 class="pt">A conversa começa aqui.</h2>
-        <h2 class="zh">从一次对话开始。</h2>
-        <p class="pt">Recebeu uma autuação ou quer revisar a situação fiscal? Fale conosco pelo WhatsApp e agende uma conversa. Atendemos em todo o Brasil.</p>
-        <p class="zh">收到处罚决定，或希望复核税务状况？请通过 WhatsApp 与我们联系，预约面谈。我们服务全巴西客户。</p>
-      </div>
-      <div class="contact-card reveal">
-        <div class="contact-row"><div class="k pt">Advogado responsável</div><div class="k zh">主办律师</div><div class="v">Raphael da Silva Gonçalves</div><div class="v" style="font-size:14px;color:var(--stone-light);margin-top:4px">OAB/AM 18.561</div></div>
-        <div class="contact-row"><div class="k pt">Telefone · WhatsApp</div><div class="k zh">电话 · WhatsApp</div><a class="v" href="https://wa.me/5592981267195" target="_blank" rel="noopener">(92) 98126-7195</a></div>
-        <div class="contact-row"><div class="k">E-mail</div><a class="v" href="mailto:raphael@gat.adv.br">raphael@gat.adv.br</a></div>
-        <div class="contact-row"><div class="k">LinkedIn</div><a class="v" href="https://www.linkedin.com/in/raphael-gonçalves-876a371b5" target="_blank" rel="noopener">Raphael Gonçalves</a></div>
-        <div class="contact-row"><div class="k pt">Atendimento</div><div class="k zh">服务范围</div><div class="v pt">Todo o Brasil</div><div class="v zh">全巴西</div></div>
-        <a class="wa-btn pt" href="https://wa.me/5592981267195" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.16c-.24.68-1.42 1.32-1.95 1.36-.5.04-.97.23-3.27-.68-2.76-1.09-4.5-3.9-4.64-4.08-.13-.18-1.1-1.47-1.1-2.8 0-1.33.7-1.98.94-2.25.24-.27.53-.34.71-.34.18 0 .36 0 .5.01.16.01.38-.06.6.46.24.56.79 1.94.86 2.08.07.14.11.31.02.5-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.93 1.94 1.22 2.21 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.31.07.11.07.63-.17 1.31z"/></svg>
-          Falar pelo WhatsApp
+  <section class="hero">
+    <div class="wrap">
+      <span class="label pt rise">Advocacia Tributária · Manaus</span>
+      <span class="label zh rise">税务律师事务所 · 玛瑙斯</span>
+      <h1 class="pt rise">O direito tributário exige o que a pressa não permite: <em>precisão.</em></h1>
+      <h1 class="zh rise">税法所要求的，正是仓促所不能给予的：<em>精准。</em></h1>
+      <p class="lede pt rise">Defesa em autos de infração, contencioso judicial tributário, transação de débitos e estruturação de operações no regime da Zona Franca de Manaus. Do primeiro documento à última linha, cada caso recebe o tempo que o rigor exige.</p>
+      <p class="lede zh rise">税务处罚抗辩、税务司法争议、债务和解，以及玛瑙斯自由贸易区税收制度下的业务架构。从第一份文件到最后一行，每个案件都获得严谨所要求的时间。</p>
+      <div class="hero-cta rise">
+        <a class="btn" href="https://wa.me/5592981267195" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+          <span class="pt">Conversar no WhatsApp</span>
+          <span class="zh">通过 WhatsApp 联系</span>
         </a>
-        <a class="wa-btn zh" href="https://wa.me/5592981267195" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.16c-.24.68-1.42 1.32-1.95 1.36-.5.04-.97.23-3.27-.68-2.76-1.09-4.5-3.9-4.64-4.08-.13-.18-1.1-1.47-1.1-2.8 0-1.33.7-1.98.94-2.25.24-.27.53-.34.71-.34.18 0 .36 0 .5.01.16.01.38-.06.6.46.24.56.79 1.94.86 2.08.07.14.11.31.02.5-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.93 1.94 1.22 2.21 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.31.07.11.07.63-.17 1.31z"/></svg>
-          WhatsApp 咨询
-        </a>
+        <span class="hero-note pt">Resposta em até 24 horas úteis</span>
+        <span class="hero-note zh">工作日 24 小时内回复</span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
+  <!-- ============ PRÁTICA — bloco escuro ============ -->
+  <section id="pratica" class="practice-sec">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="label pt">Áreas de prática</span>
+        <span class="label zh">业务领域</span>
+        <h2 class="pt">O contencioso e o planejamento, sob o mesmo rigor.</h2>
+        <h2 class="zh">争议解决与税务规划，同样的严谨标准。</h2>
+      </div>
+      <div class="practice-grid stagger">
+        <div class="pr-item">
+          <h3 class="pt">Autos de infração</h3>
+          <h3 class="zh">税务处罚抗辩</h3>
+          <p class="pt">Análise técnica da autuação — Receita Federal ou SEFAZ — e impugnação dentro do prazo. É na fase administrativa que a defesa custa menos e alcança mais.</p>
+          <p class="zh">对联邦税务局或州财政厅处罚的技术分析，并在期限内提出抗辩。行政阶段的抗辩成本最低、效果最好。</p>
+        </div>
+        <div class="pr-item">
+          <h3 class="pt">Contencioso judicial</h3>
+          <h3 class="zh">税务司法争议</h3>
+          <p class="pt">Execução fiscal, embargos, exceção de pré-executividade, mandado de segurança e ações anulatórias — da primeira instância aos tribunais superiores.</p>
+          <p class="zh">税务执行、执行异议、先决抗辩、保障令与撤销之诉——从一审到最高法院。</p>
+        </div>
+        <div class="pr-item">
+          <h3 class="pt">Zona Franca de Manaus</h3>
+          <h3 class="zh">玛瑙斯自由贸易区</h3>
+          <p class="pt">Estruturação tributária no polo industrial — imunidades constitucionais, PIS/COFINS, IPI e o desenho correto para empresas nacionais e estrangeiras.</p>
+          <p class="zh">工业区业务的税务架构——宪法性免税、PIS/COFINS、IPI，以及本国与外国企业的正确架构。</p>
+        </div>
+        <div class="pr-item">
+          <h3 class="pt">Transação tributária</h3>
+          <h3 class="zh">税务和解</h3>
+          <p class="pt">Negociação de débitos inscritos junto à PGFN e às procuradorias estaduais — descontos, parcelamento e regularização com lastro legal.</p>
+          <p class="zh">与联邦及州总检察院协商税务债务——减免、分期与合法合规化。</p>
+        </div>
+        <div class="pr-item">
+          <h3 class="pt">Consultivo e planejamento</h3>
+          <h3 class="zh">税务咨询与规划</h3>
+          <p class="pt">Escolha de regime, reorganizações societárias com substância econômica e pareceres sobre operações específicas — a economia fiscal que resiste a auditoria.</p>
+          <p class="zh">税制选择、具有经济实质的公司重组及专项业务法律意见——经得起稽查检验的税务优化。</p>
+        </div>
+        <div class="pr-item">
+          <h3 class="pt">Reforma tributária</h3>
+          <h3 class="zh">税制改革</h3>
+          <p class="pt">Diagnóstico do impacto do IBS e da CBS sobre a operação, revisão de contratos e preparação para a transição — antes que o novo sistema chegue ao caixa.</p>
+          <p class="zh">IBS 与 CBS 对企业经营影响的诊断、合同审查与过渡期准备——在新税制影响现金流之前。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MÉTODO — faixa clara ============ -->
+  <section id="metodo" class="method">
+    <div class="wrap">
+      <p class="statement pt reveal">Poucos casos por vez. Leitura integral dos autos. Nenhuma peça padronizada. <em>É assim que se constrói uma defesa.</em></p>
+      <p class="statement zh reveal">同期案件精选有限。全卷通读。绝无模板化文书。<em>抗辩正是如此构建的。</em></p>
+      <div class="support stagger">
+        <div>
+          <h3 class="pt">Triagem</h3><h3 class="zh">筛选</h3>
+          <p class="pt">Casos fora do foco tributário são recusados ou encaminhados. A qualidade depende do tempo dedicado a cada processo.</p>
+          <p class="zh">税务领域之外的案件将被婉拒或转介。质量取决于投入每个案件的时间。</p>
+        </div>
+        <div>
+          <h3 class="pt">Profundidade</h3><h3 class="zh">深度</h3>
+          <p class="pt">Um auto de infração se vence no detalhe que a fiscalização deixou passar. Cada documento dos autos é lido, verificado e confrontado.</p>
+          <p class="zh">税务处罚的胜诉取决于稽查机关忽略的细节。案卷中的每份文件都经过阅读、核实与比对。</p>
+        </div>
+        <div>
+          <h3 class="pt">Clareza</h3><h3 class="zh">清晰</h3>
+          <p class="pt">O cliente sabe o que é possível, o que é provável e o que não é — antes de decidir. Sem promessa de resultado.</p>
+          <p class="zh">客户在决策之前，清楚了解什么可能、什么有把握、什么不可行。不作结果承诺。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ARTIGOS — faixa verde-clara ============ -->
+  <section id="artigos" class="articles">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="label pt">Publicações</span>
+        <span class="label zh">出版物</span>
+        <h2 class="pt">Análises técnicas, escritas para quem decide.</h2>
+        <h2 class="zh">为决策者而写的技术分析。</h2>
+      </div>
+      <div class="art-list stagger">
+        <a class="art-item" href="artigos/2026-07-08-auto-de-infracao.html">
+          <time datetime="2026-07-08">jul 2026</time>
+          <h3 class="pt">Auto de infração: o que é, o que representa e por que o prazo importa</h3>
+          <h3 class="zh">税务处罚通知：定义、意义及期限的重要性</h3>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="art-item" href="artigos/2026-07-08-execucao-fiscal-bloqueio-contas.html">
+          <time datetime="2026-06-16">jun 2026</time>
+          <h3 class="pt">Execução fiscal e bloqueio de contas: o que é, como funciona e como reagir</h3>
+          <h3 class="zh">税务执行与账户冻结：定义、机制与应对</h3>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="art-item" href="artigos/2026-07-08-transacao-tributaria.html">
+          <time datetime="2026-05-20">mai 2026</time>
+          <h3 class="pt">Transação tributária: negociação de débitos fiscais como instrumento de reorganização</h3>
+          <h3 class="zh">税务和解：作为企业重组工具的税务债务协商</h3>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="art-item" href="artigos/2026-07-08-zona-franca-manaus-empresa-estrangeira.html">
+          <time datetime="2026-05-05">mai 2026</time>
+          <h3 class="pt">Zona Franca de Manaus: o regime fiscal e o que uma empresa estrangeira precisa estruturar</h3>
+          <h3 class="zh">玛瑙斯自由贸易区：税收制度与外国企业须构建的架构</h3>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="art-item" href="artigos/2024-09-10-fatiamento-empresa-simples-nacional-grupo-economico.html">
+          <time datetime="2024-09-10">set 2024</time>
+          <h3 class="pt">Fatiamento de empresa e Simples Nacional: quando dividir o negócio vira crime tributário</h3>
+          <h3 class="zh">企业拆分与简易税制：何时业务分割构成税务犯罪</h3>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTATO — bloco verde profundo ============ -->
+  <section id="contato" class="contact">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="label pt">Contato</span>
+        <span class="label zh">联系方式</span>
+        <h2 class="pt">Uma conversa antes de qualquer decisão.</h2>
+        <h2 class="zh">在任何决定之前，先进行一次交流。</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-text reveal">
+          <p class="pt">Recebeu um auto de infração, identificou um bloqueio de contas ou pretende estruturar uma operação na Zona Franca? O primeiro passo é <strong>uma análise honesta do que existe</strong> — documentos, prazos, alternativas. Com clareza sobre o que é possível.</p>
+          <p class="zh">收到税务处罚决定、发现账户被冻结，或计划在自由贸易区构建业务？第一步是<strong>对现状的诚实分析</strong>——文件、期限、可选方案。清晰说明可能性。</p>
+        </div>
+        <aside class="contact-card reveal">
+          <dl>
+            <dt class="pt">Sócio fundador</dt><dt class="zh">创始合伙人</dt>
+            <dd>Raphael da Silva Gonçalves · OAB/AM 18.561</dd>
+            <dt>WhatsApp · <span class="pt">Telefone</span><span class="zh">电话</span></dt>
+            <dd><a href="https://wa.me/5592981267195" target="_blank" rel="noopener">(92) 98126-7195</a></dd>
+            <dt>E-mail</dt>
+            <dd><a href="mailto:raphael@gat.adv.br">raphael@gat.adv.br</a></dd>
+            <dt class="pt">Atendimento</dt><dt class="zh">服务范围</dt>
+            <dd class="pt">Todo o Brasil, processo eletrônico</dd>
+            <dd class="zh">全巴西，电子诉讼</dd>
+          </dl>
+          <a class="btn btn-light" href="https://wa.me/5592981267195" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+            <span class="pt">Iniciar a conversa</span>
+            <span class="zh">开始交流</span>
+          </a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
 <footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <a class="brand foot-brand" href="#top">
-        <span class="brand-mark">GA<sup>T</sup></span>
-        <span class="brand-txt">
-          <b>Gonçalves</b>
-          <span class="pt">Advocacia Tributária</span>
-          <span class="zh">税务律师事务所</span>
-        </span>
-      </a>
-      <div class="foot-info">
-        <strong>Raphael da Silva Gonçalves</strong> · OAB/AM 18.561<br>
-        <span class="pt">Manaus, Amazonas · Atendimento em todo o Brasil</span>
-        <span class="zh">玛瑙斯，亚马逊州 · 服务全巴西</span><br>
-        (92) 98126-7195 · raphael@gat.adv.br
-      </div>
-    </div>
+  <div class="wrap foot">
     <p class="foot-oab pt">Este site tem caráter meramente informativo, em conformidade com o Provimento nº 205/2021 da OAB. Não constitui oferta de serviços, captação de clientela ou promessa de resultados. As informações aqui veiculadas não substituem a análise individualizada de cada caso.</p>
     <p class="foot-oab zh">本网站仅供信息参考之用，符合巴西律师协会第 205/2021 号规定。不构成服务要约、客户招揽或结果承诺。所载信息不能替代对个案的专门分析。</p>
-    <div class="foot-bottom">
-      <span>© <span id="year"></span> GAT — Gonçalves Advocacia Tributária</span>
-      <span class="pt">Todos os direitos reservados</span>
-      <span class="zh">版权所有</span>
+    <div class="foot-line">
+      <span>© 2026 GAT — Gonçalves Advocacia Tributária</span>
+      <span class="pt">Manaus · Amazonas</span>
+      <span class="zh">玛瑙斯 · 亚马逊州</span>
     </div>
   </div>
 </footer>
 
 <script>
-  const html=document.documentElement;
-  function setLang(l){
-    html.setAttribute('data-lang',l);
-    html.setAttribute('lang', l==='zh'?'zh-CN':'pt-BR');
-    document.querySelectorAll('[data-set-lang]').forEach(b=>b.classList.toggle('active',b.dataset.setLang===l));
-    try{localStorage.setItem('gat-lang',l)}catch(e){}
-    if(window._renderArts)window._renderArts();
-  }
-  document.querySelectorAll('[data-set-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.setLang)));
-  (function(){let l='pt';try{l=localStorage.getItem('gat-lang')||'pt'}catch(e){}setLang(l);})();
+const html=document.documentElement;
+function setLang(l){
+  html.setAttribute('data-lang',l);
+  html.setAttribute('lang',l==='zh'?'zh-CN':'pt-BR');
+  document.querySelectorAll('[data-set-lang]').forEach(b=>b.classList.toggle('active',b.dataset.setLang===l));
+  try{localStorage.setItem('gat-lang',l)}catch(e){}
+}
+document.querySelectorAll('[data-set-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.setLang)));
+(function(){let l='pt';try{l=localStorage.getItem('gat-lang')||'pt'}catch(e){}setLang(l)})();
 
-  const nav=document.getElementById('nav');
-  const progress=document.getElementById('progress');
-  addEventListener('scroll',()=>{
-    nav.classList.toggle('scrolled',scrollY>20);
-    const h=document.body.scrollHeight-innerHeight;
-    progress.style.width=(h>0?scrollY/h*100:0)+'%';
-  },{passive:true});
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>10),{passive:true});
 
-  const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');
-  menuBtn.addEventListener('click',()=>{menuBtn.classList.toggle('open');navLinks.classList.toggle('open')});
-  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menuBtn.classList.remove('open');navLinks.classList.remove('open')}));
-
-  document.getElementById('year').textContent=new Date().getFullYear();
-
-  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  // custom cursor — dot follows instantly, ring trails with easing
-  (function(){
-    const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
-    if(!dot||!ring)return;
-    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
-    addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;
-      dot.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;});
-    (function loop(){rx+=(mx-rx)*0.07;ry+=(my-ry)*0.07;
-      ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;
-      requestAnimationFrame(loop);})();
-    document.querySelectorAll('a,button,.svc,.ap,.cli,.proc,.art-card').forEach(el=>{
-      el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
-    });
-  })();
-
-  // magnetic effect on buttons
-  (function(){
-    var els=document.querySelectorAll('.btn,.nav-cta');
-    els.forEach(function(el){
-      el.addEventListener('mousemove',function(e){
-        var r=el.getBoundingClientRect();
-        var x=(e.clientX-r.left-r.width/2)*0.22;
-        var y=(e.clientY-r.top-r.height/2)*0.22;
-        el.style.transform='translate('+x+'px,'+y+'px)';
-      });
-      el.addEventListener('mouseleave',function(){
-        el.style.transform='';
-      });
-    });
-  })();
-
-  // articles from CMS index
-  fetch('articles/index.json',{cache:'no-store'})
-    .then(r=>r.ok?r.json():[])
-    .then(list=>{
-      if(!Array.isArray(list)||!list.length)return;
-      const grid=document.getElementById('artGrid');
-      window._renderArts=function(){
-        const zh=html.getAttribute('data-lang')==='zh';
-        grid.innerHTML='';
-        list.slice(0,6).forEach(a=>{
-          const card=document.createElement('a');
-          card.className='art-card';
-          card.href='artigos/'+a.slug+'.html';
-          const title=(zh&&a.has_zh&&a.title_zh)?a.title_zh:a.title;
-          const exc=(zh&&a.has_zh&&a.excerpt_zh)?a.excerpt_zh:a.excerpt;
-          const more=zh?'阅读文章':'Ler artigo';
-          const date=a.date?new Date(a.date).toLocaleDateString(zh?'zh-CN':'pt-BR',{year:'numeric',month:'short'}):'';
-          card.innerHTML='<div class="meta">'+(a.tag?'<span class="tag">'+a.tag+'</span>·':'')+'<span>'+date+'</span></div>'+
-            '<h3>'+(title||'')+'</h3><p>'+(exc||'')+'</p>'+
-            '<span class="more">'+more+' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
-          grid.appendChild(card);
-          card.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
-          card.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
-        });
-      };
-      window._renderArts();
-      if(list.length>6)document.getElementById('artAll').style.display='block';
-    })
-    .catch(()=>{});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0.08});
+document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
