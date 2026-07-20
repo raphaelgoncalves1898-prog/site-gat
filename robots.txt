@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gat.adv.br/sitemap.xml

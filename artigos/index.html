@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Artigos — GAT</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--ink:#161310;--paper:#F4F1EA;--stone:#8B8680;--wine:#7A2530;--line:rgba(22,19,16,.12);
+    --serif:'Cormorant Garamond',serif;--sans:'Inter',sans-serif}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand-mark{width:36px;height:36px;background:var(--ink);color:var(--paper);display:flex;align-items:center;
+    justify-content:center;font-family:var(--serif);font-weight:600;font-size:16px;position:relative}
+  .brand-mark::after{content:'';position:absolute;inset:4px;border:1px solid rgba(244,241,234,.4)}
+  .brand-mark sup{font-size:8px}.brand b{font-family:var(--serif);font-size:18px;font-weight:600}
+  .back{font-size:13px;color:var(--stone);text-decoration:none}.back:hover{color:var(--wine)}
+  header{max-width:960px;margin:0 auto;padding:70px 32px 30px}
+  header .eb{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--wine);font-weight:500}
+  header h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,6vw,56px);margin-top:14px}
+  .list{max-width:960px;margin:0 auto;padding:20px 32px 90px}
+  .item{display:block;text-decoration:none;color:inherit;padding:32px 0;border-top:1px solid var(--line);transition:.2s}
+  .item:hover{padding-left:10px}
+  .item .meta{display:flex;gap:12px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-bottom:12px}
+  .item .tag{color:var(--wine);font-weight:500}
+  .item h2{font-family:var(--serif);font-weight:600;font-size:26px;line-height:1.2;margin-bottom:10px}
+  .item p{color:var(--stone);font-size:15px;max-width:640px}
+  .empty{padding:60px 0;color:var(--stone);border-top:1px solid var(--line)}
+  @media(max-width:600px){nav{padding:14px 18px}header{padding:48px 20px 20px}.list{padding:10px 20px 70px}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="brand" href="/"><span class="brand-mark">GA<sup>T</sup></span><b>Gonçalves</b></a>
+  <a class="back" href="/">← Início</a>
+</nav>
+<header><p class="eb">Artigos</p><h1>Análises em direito tributário</h1></header>
+<div class="list">
+  <a class="item" href="/artigos/2026-07-08-auto-de-infracao.html">
+    <div class="meta"><span class="tag">Auto de Infração</span><span>7 de julho de 2026</span></div>
+    <h2>Auto de infração: o que é, o que representa e por que o prazo importa</h2>
+    <p>Receber um auto de infração não significa pagar automaticamente — mas os prazos são rígidos e cada fase do processo abre ou fecha possibilidades.</p>
+  </a>
+  <a class="item" href="/artigos/2026-07-08-execucao-fiscal-bloqueio-contas.html">
+    <div class="meta"><span class="tag">Execução Fiscal</span><span>15 de junho de 2026</span></div>
+    <h2>Execução fiscal e bloqueio de contas: o que é, como funciona e como reagir</h2>
+    <p>O bloqueio de contas via SISBAJUD é uma medida judicial — pressupõe execução fiscal em curso. Entender essa distinção é o primeiro passo para reagir com eficiência.</p>
+  </a>
+  <a class="item" href="/artigos/2026-07-08-transacao-tributaria.html">
+    <div class="meta"><span class="tag">Planejamento Tributário</span><span>25 de maio de 2026</span></div>
+    <h2>Transação tributária: negociação de débitos fiscais como instrumento de reorganização empresarial</h2>
+    <p>A transação tributária permite negociar débitos com descontos de até 70% e parcelamento em até 133 vezes — e pode ser usada de forma proativa, não apenas em situações de crise.</p>
+  </a>
+  <a class="item" href="/artigos/2026-07-08-zona-franca-manaus-empresa-estrangeira.html">
+    <div class="meta"><span class="tag">Zona Franca de Manaus</span><span>11 de maio de 2026</span></div>
+    <h2>Zona Franca de Manaus: o regime fiscal e o que uma empresa estrangeira precisa estruturar para operar no Polo Industrial</h2>
+    <p>A ZFM oferece redução de até 88% no Imposto de Importação, isenção de IPI e PIS/COFINS, e ICMS restituído em até 100% — mas a fruição depende de aprovação prévia do Processo Produtivo Básico e regularidade perante a SUFRAMA.</p>
+  </a>
+  <a class="item" href="/artigos/2024-09-10-fatiamento-empresa-simples-nacional-grupo-economico.html">
+    <div class="meta"><span class="tag">Simples Nacional</span><span>9 de setembro de 2024</span></div>
+    <h2>Fatiamento de Empresa e Simples Nacional: quando dividir o negócio vira crime tributário</h2>
+    <p>Empresários que dividem artificialmente o negócio entre vários CNPJs para permanecer no Simples Nacional arriscam exclusão retroativa do regime, cobrança integral de IRPJ, CSLL, PIS e COFINS e multa qualificada de 150%. Entenda como o CARF decide esses casos e quais são as alternativas legítimas.</p>
+  </a></div>
+</body>
+</html>

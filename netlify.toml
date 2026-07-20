@@ -1,0 +1,15 @@
+# Configuração de build do Netlify
+[build]
+  command = "npm install && npm run build"
+  publish = "."
+
+[[redirects]]
+  from = "/artigos"
+  to = "/artigos/index.html"
+  status = 200
+
+# Painel de administração
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
