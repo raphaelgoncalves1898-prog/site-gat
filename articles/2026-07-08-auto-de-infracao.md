@@ -1,18 +1,37 @@
 ---
-title: "Auto de infração: o que é, o que representa e por que o prazo importa"
-excerpt: "Receber um auto de infração não significa pagar automaticamente — mas os prazos são rígidos e cada fase do processo abre ou fecha possibilidades."
+title: "Auto de Infração: o que é, o que muda em relação à execução fiscal e por que o prazo importa"
+excerpt: "Receber um auto de infração não significa que as contas serão bloqueadas — isso é execução fiscal, uma etapa diferente. Entenda as fases do processo e por que o prazo é o que decide as suas opções de defesa."
 tag: "Auto de Infração"
 date: 2026-07-08
 ---
 
-O auto de infração é o ato pelo qual a autoridade fiscal — a Receita Federal, a SEFAZ estadual ou o município — formaliza uma exigência tributária. O documento aponta a irregularidade identificada, quantifica o crédito exigido e notifica o contribuinte a se manifestar dentro de um prazo legalmente fixado.
+O auto de infração é o ato pelo qual a autoridade fiscal — Receita Federal, SEFAZ estadual ou o município — formaliza uma exigência tributária. O documento aponta a irregularidade identificada, quantifica o valor exigido e abre um prazo legal para o contribuinte se manifestar.
 
-Receber um auto de infração não significa, por si só, que as contas da empresa serão bloqueadas ou que os bens estão em risco imediato. O bloqueio de ativos — via SISBAJUD ou outros mecanismos de constrição — é uma medida judicial, típica da execução fiscal, que pressupõe um processo já instaurado perante o Poder Judiciário. São institutos distintos, com consequências e prazos distintos.
+Receber um auto de infração não significa, por si só, que as contas da empresa serão bloqueadas ou que os bens estão em risco imediato. Isso costuma ser o primeiro medo de quem recebe a notificação — e não corresponde à realidade do processo.
 
-O primeiro cuidado, portanto, é verificar em qual fase o caso se encontra: se ainda na esfera administrativa — onde o auto de infração pode ser contestado mediante impugnação, sem que a exigibilidade do crédito esteja ativa — ou se já há uma execução fiscal em curso, hipótese que exige atenção imediata e estratégia diferente.
+## Auto de infração e execução fiscal são coisas diferentes
 
-Essa distinção não é trivial. Autos de infração da Receita Federal e da SEFAZ percorrem um rito administrativo próprio antes de qualquer cobrança judicial. Enquanto tramita o processo administrativo fiscal, o crédito tem sua exigibilidade suspensa — o que significa que, nesse período, não há inscrição em dívida ativa, não há execução e não há bloqueio. Impugnar o auto de infração dentro do prazo legal é o que inaugura e mantém essa proteção.
+O bloqueio de ativos — via SISBAJUD (o sistema que permite à Justiça travar valores em contas bancárias) ou outros mecanismos semelhantes — é uma medida judicial. Ela pertence à execução fiscal, uma etapa que só existe depois que o processo chega à Justiça. Um auto de infração, sozinho, não é isso.
 
-O problema é que esse mesmo prazo é rígido e breve. Vencido sem manifestação, a revelia é declarada, a fase administrativa se encerra e o caminho para a cobrança judicial se abre. A partir daí, as opções de defesa se tornam mais restritas e mais custosas.
+O primeiro passo diante de um auto de infração é identificar em qual fase o caso está:
 
-Receber um auto de infração da Receita Federal ou da SEFAZ exige, antes de qualquer decisão, uma análise técnica do documento: verificar se há execução fiscal em andamento, identificar os fundamentos da autuação, avaliar a consistência do lançamento e definir a estratégia mais adequada — seja a impugnação administrativa, seja outra via.
+- **Fase administrativa** — o auto de infração pode ser contestado por meio de impugnação, e o crédito ainda não é exigível.
+- **Fase judicial** — já existe uma execução fiscal em curso, o que exige atenção imediata e uma estratégia diferente.
+
+## Por que o prazo é o ponto decisivo
+
+Enquanto tramita o processo administrativo fiscal, o crédito tem sua exigibilidade suspensa. Na prática, isso quer dizer que, nesse período, não há inscrição em dívida ativa (o registro que antecede a cobrança judicial), não há execução e não há bloqueio.
+
+É a impugnação apresentada dentro do prazo legal que abre e mantém essa proteção.
+
+O problema é que esse prazo é curto e não se estende. Se vence sem manifestação, o contribuinte é considerado revel, a fase administrativa se encerra, e o caminho para a cobrança judicial fica livre. A partir desse ponto, as opções de defesa passam a ser mais restritas — e mais caras.
+
+## O que fazer ao receber um auto de infração
+
+1. Verifique a fase do processo — administrativa ou judicial — antes de qualquer outra decisão.
+2. Confira a data do prazo para impugnação ou defesa, indicada no próprio documento.
+3. Identifique o fundamento da autuação — qual tributo, qual período, qual irregularidade apontada.
+4. Avalie a consistência do lançamento — se os valores e a fundamentação legal usados pela autoridade fiscal estão corretos.
+5. Defina a estratégia adequada dentro do prazo — impugnação administrativa ou outra via, conforme o caso.
+
+Se sua empresa recebeu um auto de infração, fale com a nossa equipe para entender em que fase o caso está e qual o prazo real que você tem para agir.
