@@ -8,6 +8,22 @@
   to = "/artigos/index.html"
   status = 200
 
+# Cabeçalhos de segurança aplicados a todo o site
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# Cache de longo prazo para imagens e favicons estáticos
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 # Painel de administração
 [[headers]]
   for = "/admin/*"

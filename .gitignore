@@ -1,0 +1,5 @@
+node_modules/
+articles/index.json
+/artigos/
+/sitemap.xml
+/robots.txt
