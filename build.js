@@ -22,7 +22,25 @@ if (!fs.existsSync(OUT)) { fs.mkdirSync(OUT, { recursive: true }); }
 const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const fmtDate = d => { try { return new Date(d).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' }); } catch { return ''; } };
 
-function page({ title, tag, date, coverHtml, bodyHtml, hasZh, titleZh, bodyZhHtml, tagZh }) {
+function page({ title, tag, date, isoDate, excerpt, slug, coverHtml, coverUrl, bodyHtml, hasZh, titleZh, bodyZhHtml, tagZh }) {
+  const url = `${SITE_URL}/artigos/${slug}.html`;
+  const description = esc(excerpt || (bodyHtml || '').replace(/<[^>]+>/g, '').slice(0, 155));
+  const ogImage = coverUrl || `${SITE_URL}/gat-horizontal.png`;
+  const jsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: excerpt || undefined,
+    image: coverUrl || undefined,
+    datePublished: isoDate || undefined,
+    author: { '@type': 'Person', name: 'Raphael da Silva Gonçalves' },
+    publisher: {
+      '@type': 'LegalService',
+      name: 'GAT — Gonçalves Advocacia Tributária',
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/gat-classico.png` },
+    },
+    mainEntityOfPage: url,
+  });
   const zhBlock = hasZh ? `
     <div class="zh">
       <div class="art-meta"><span class="tag">${esc(tagZh || tag)}</span><span>${esc(date)}</span></div>
@@ -41,8 +59,23 @@ function page({ title, tag, date, coverHtml, bodyHtml, hasZh, titleZh, bodyZhHtm
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>${esc(title)} — GAT</title>
-<meta name="description" content="${esc((bodyHtml || '').replace(/<[^>]+>/g, '').slice(0, 155))}"/>
-<link rel="icon" type="image/png" href="/img/favicon.png"/>
+<meta name="description" content="${description}"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<link rel="canonical" href="${url}"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="GAT — Gonçalves Advocacia Tributária"/>
+<meta property="og:locale" content="pt_BR"/>
+<meta property="og:url" content="${url}"/>
+<meta property="og:title" content="${esc(title)}"/>
+<meta property="og:description" content="${description}"/>
+<meta property="og:image" content="${esc(ogImage)}"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="${esc(title)}"/>
+<meta name="twitter:description" content="${description}"/>
+<meta name="twitter:image" content="${esc(ogImage)}"/>
+<script type="application/ld+json">${jsonLd}</script>
+<link rel="icon" type="image/png" href="/favicon-32.png"/>
+<link rel="apple-touch-icon" href="/favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -140,7 +173,7 @@ for (const file of files) {
   const { data, content } = matter(raw);
   const slug = file.replace(/\.md$/, '');
   const date = data.date || '';
-  const coverHtml = data.cover ? `<img class="art-cover" src="${esc(data.cover)}" alt="${esc(data.title)}"/>` : '';
+  const coverHtml = data.cover ? `<img class="art-cover" src="${esc(data.cover)}" alt="${esc(data.title)}" loading="lazy"/>` : '';
   const hasZh = !!data.has_zh && !!data.body_zh;
 
   const html = page({
@@ -148,7 +181,11 @@ for (const file of files) {
     tag: data.tag || 'Geral',
     tagZh: data.tag || 'Geral',
     date: fmtDate(date),
+    isoDate: date ? new Date(date).toISOString() : '',
+    excerpt: data.excerpt || '',
+    slug,
     coverHtml,
+    coverUrl: data.cover || '',
     bodyHtml: marked.parse(content || ''),
     hasZh,
     titleZh: data.title_zh || data.title,
@@ -185,7 +222,11 @@ const listPage = `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Artigos — GAT</title>
+<title>Artigos sobre Direito Tributário — GAT</title>
+<meta name="description" content="Análises técnicas de direito tributário: autuações fiscais, execução fiscal, planejamento tributário e Zona Franca de Manaus, por Raphael da Silva Gonçalves (OAB/AM 18.561)."/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<link rel="canonical" href="${SITE_URL}/artigos/index.html"/>
+<link rel="icon" type="image/png" href="/favicon-32.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
@@ -230,12 +271,14 @@ fs.writeFileSync(path.join(OUT, 'index.html'), listPage);
 // ---------------------------------------------------------------
 const today = new Date().toISOString().split('T')[0];
 
+const toIsoDate = d => { try { return new Date(d).toISOString().split('T')[0]; } catch { return today; } };
+
 const sitemapUrls = [
   { loc: `${SITE_URL}/`, lastmod: today },
   { loc: `${SITE_URL}/artigos/index.html`, lastmod: today },
   ...index.map(a => ({
     loc: `${SITE_URL}/artigos/${a.slug}.html`,
-    lastmod: a.date || today,
+    lastmod: a.date ? toIsoDate(a.date) : today,
   })),
 ];
 
