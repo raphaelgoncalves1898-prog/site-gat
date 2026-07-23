@@ -22,7 +22,7 @@ if (!fs.existsSync(OUT)) { fs.mkdirSync(OUT, { recursive: true }); }
 const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const fmtDate = d => { try { return new Date(d).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' }); } catch { return ''; } };
 
-function page({ title, tag, date, isoDate, excerpt, slug, coverHtml, coverUrl, bodyHtml, hasZh, titleZh, bodyZhHtml, tagZh }) {
+function page({ title, tag, date, isoDate, excerpt, slug, coverHtml, coverUrl, bodyHtml, hasZh, titleZh, bodyZhHtml, tagZh, faq }) {
   const url = `${SITE_URL}/artigos/${slug}.html`;
   const description = esc(excerpt || (bodyHtml || '').replace(/<[^>]+>/g, '').slice(0, 155));
   const ogImage = coverUrl || `${SITE_URL}/gat-horizontal.png`;
@@ -41,6 +41,15 @@ function page({ title, tag, date, isoDate, excerpt, slug, coverHtml, coverUrl, b
     },
     mainEntityOfPage: url,
   });
+  const faqJsonLd = (Array.isArray(faq) && faq.length) ? JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }) : '';
   const zhBlock = hasZh ? `
     <div class="zh">
       <div class="art-meta"><span class="tag">${esc(tagZh || tag)}</span><span>${esc(date)}</span></div>
@@ -74,7 +83,7 @@ function page({ title, tag, date, isoDate, excerpt, slug, coverHtml, coverUrl, b
 <meta name="twitter:description" content="${description}"/>
 <meta name="twitter:image" content="${esc(ogImage)}"/>
 <script type="application/ld+json">${jsonLd}</script>
-<link rel="icon" type="image/png" href="/favicon-32.png"/>
+${faqJsonLd ? `<script type="application/ld+json">${faqJsonLd}</script>\n` : ''}<link rel="icon" type="image/png" href="/favicon-32.png"/>
 <link rel="apple-touch-icon" href="/favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -190,6 +199,7 @@ for (const file of files) {
     hasZh,
     titleZh: data.title_zh || data.title,
     bodyZhHtml: hasZh ? marked.parse(data.body_zh || '') : '',
+    faq: data.faq || null,
   });
 
   fs.writeFileSync(path.join(OUT, slug + '.html'), html);
