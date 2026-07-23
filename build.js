@@ -40,10 +40,15 @@ const NOIR_CSS = `
     background:rgba(18,18,18,.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
     border-bottom:1px solid var(--border-soft);display:flex;justify-content:space-between;align-items:center;
     max-width:var(--maxw);margin:0 auto}
-  .navbar .logo{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:26px;font-weight:600;
-    letter-spacing:-.08em;color:var(--text-main);text-decoration:none}
-  .navbar .logo sup{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0;
-    vertical-align:super;margin-left:2px}
+  .navbar .logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--text-main)}
+  .navbar .logo img{width:34px;height:34px;display:block}
+  .navbar .logo .logo-text{display:flex;flex-direction:column;line-height:1.2}
+  .navbar .logo .logo-name{font-family:'Source Serif 4',Georgia,serif;font-size:17px;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--text-main)}
+  .navbar .logo .logo-sub{font-family:'Source Serif 4',Georgia,serif;font-size:8px;font-weight:400;
+    letter-spacing:.31em;text-transform:uppercase;color:var(--muted)}
+  @media(max-width:600px){.navbar .logo .logo-sub{display:none}.navbar .logo .logo-name{font-size:15px}
+    .navbar .logo img{width:30px;height:30px}}
   .navbar .back{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;
     color:var(--text-body);text-decoration:none;padding:8px 18px;border:1px solid var(--border-soft);
     border-radius:100px;background:rgba(255,255,255,.05);transition:all .3s ease}
@@ -168,7 +173,10 @@ ${NOIR_CSS}
 <body>
 <div class="progress" id="progress" aria-hidden="true"></div>
 <nav class="navbar">
-  <a class="logo" href="/">GAT<sup>®</sup></a>
+  <a class="logo" href="/">
+    <img src="/gat-marca.png" alt="" width="34" height="34"/>
+    <span class="logo-text"><span class="logo-name">Gonçalves</span><span class="logo-sub">Advocacia Tributária</span></span>
+  </a>
   <div style="display:flex;align-items:center;gap:12px">
     ${toggle}
     <a class="back" href="/artigos/">
@@ -315,7 +323,10 @@ ${NOIR_CSS}
 </head>
 <body>
 <nav class="navbar">
-  <a class="logo" href="/">GAT<sup>®</sup></a>
+  <a class="logo" href="/">
+    <img src="/gat-marca.png" alt="" width="34" height="34"/>
+    <span class="logo-text"><span class="logo-name">Gonçalves</span><span class="logo-sub">Advocacia Tributária</span></span>
+  </a>
   <a class="back" href="/">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
     Início
