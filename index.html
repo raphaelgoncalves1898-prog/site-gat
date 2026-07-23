@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Advogado Tributarista em Manaus | GAT Advocacia Tributária</title>
-  <meta name="description" content="Advocacia tributária em Manaus com atuação em todo o Brasil: defesa de autuações fiscais, planejamento tributário, recuperação de créditos, execução fiscal e incentivos da Zona Franca de Manaus (SUFRAMA)." />
+  <meta name="description" content="Defesa de autuações fiscais, planejamento tributário e recuperação de créditos, com atuação nacional e foco nos incentivos da Zona Franca de Manaus (SUFRAMA)." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#121212" />
   <link rel="canonical" href="https://gat.adv.br/" />
 
   <!-- Open Graph / Twitter -->
@@ -15,11 +15,11 @@
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:url" content="https://gat.adv.br/" />
   <meta property="og:title" content="Advogado Tributarista em Manaus | GAT Advocacia Tributária" />
-  <meta property="og:description" content="Defesa de autuações fiscais, planejamento tributário, recuperação de créditos e incentivos da Zona Franca de Manaus. Atuação nacional." />
+  <meta property="og:description" content="Defesa de autuações fiscais, planejamento tributário e recuperação de créditos, com atuação nacional e foco nos incentivos da Zona Franca de Manaus (SUFRAMA)." />
   <meta property="og:image" content="https://gat.adv.br/gat-horizontal.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Advogado Tributarista em Manaus | GAT Advocacia Tributária" />
-  <meta name="twitter:description" content="Defesa de autuações fiscais, planejamento tributário, recuperação de créditos e incentivos da Zona Franca de Manaus. Atuação nacional." />
+  <meta name="twitter:description" content="Defesa de autuações fiscais, planejamento tributário e recuperação de créditos, com atuação nacional e foco nos incentivos da Zona Franca de Manaus (SUFRAMA)." />
   <meta name="twitter:image" content="https://gat.adv.br/gat-horizontal.png" />
 
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
@@ -30,9 +30,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
-
-  <!-- Preload LCP background image (hero) -->
-  <link rel="preload" as="image" fetchpriority="high" href="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260626_041422_4a459e05-abce-4150-9fb7-4ededc423cd1.png&w=1280&q=85" />
 
   <!-- Structured data: LegalService -->
   <script type="application/ld+json">
@@ -66,20 +63,50 @@
       "Planejamento Tributário",
       "Recuperação de Créditos Tributários",
       "Execução Fiscal",
-      "Zona Franca de Manaus"
+      "Zona Franca de Manaus",
+      "Tributação de Pessoas Físicas"
     ]
   }
   </script>
 
   <style>
     /* ============================================================
-       RESET & VARIÁVEIS
+       RESET & VARIÁVEIS (Dark Mode Elite)
        ============================================================ */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
+    :root {
+      /* Paleta Noir */
+      --bg: #121212;             /* Fundo geral mais escuro */
+      --bg-card: #1E1E1E;        /* Fundo dos cartões */
+      --bg-card-hover: #2A2A2A;  /* Fundo do cartão ao passar o mouse */
+      --text-main: #F5F5F7;      /* Branco acinzentado para títulos */
+      --text-body: #C0C0C5;      /* Cinza claro para leitura longa */
+      --muted: #7A7A80;          /* Cinza médio para tags/descrições */
+      --border-soft: rgba(255, 255, 255, 0.06); /* Borda sutil de vidro escuro */
+      --button-bg: #000000;      /* Preto absoluto para CTA */
+      --button-text: #FFFFFF;
+      --green: #2E8B57;          /* Um verde escuro e sóbrio (Seagreen) */
+      --maxw: 1200px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-body);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    section[id] { scroll-margin-top: 90px; }
 
     .sr-only {
       position: absolute;
@@ -93,27 +120,6 @@
       border: 0;
     }
 
-    :root {
-      --bg: #ffffff;
-      --text: #0a0a0a;
-      --muted: #6b6b6b;
-      --button-bg: #0a0a0a;
-      --button-text: #ffffff;
-      --border-soft: rgba(0, 0, 0, 0.08);
-      --green: #17c964;
-      --maxw: 1200px;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-weight: 400;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
     /* ============================================================
        TIPOGRAFIA
        ============================================================ */
@@ -124,8 +130,34 @@
       font-family: 'Source Serif 4', Georgia, serif;
       font-style: italic;
     }
-    .inter {
-      font-family: 'Inter', sans-serif;
+
+    /* ============================================================
+       MOTION — reveals de scroll e de carga
+       (dentro da media query: quem prefere menos movimento
+       vê tudo imediatamente, sem estados escondidos)
+       ============================================================ */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .reveal.d1 { animation-delay: 0.08s; }
+      .reveal.d2 { animation-delay: 0.2s; }
+      .reveal.d3 { animation-delay: 0.32s; }
+      .reveal.d4 { animation-delay: 0.44s; }
+      @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+      .inview {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .inview.is-visible { opacity: 1; transform: translateY(0); }
+      .inview.dl1 { transition-delay: 0.08s; }
+      .inview.dl2 { transition-delay: 0.16s; }
+      .inview.dl3 { transition-delay: 0.24s; }
     }
 
     /* ============================================================
@@ -138,40 +170,60 @@
       right: 0;
       z-index: 100;
       padding: 19px 36px;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(18, 18, 18, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-soft);
       display: flex;
       justify-content: space-between;
       align-items: center;
       max-width: var(--maxw);
       margin: 0 auto;
+      transition: background 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(18, 18, 18, 0.92);
     }
     .navbar .logo {
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-style: italic;
-      font-size: 30px;
-      font-weight: 600;
-      letter-spacing: -0.08em;
-      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 12px;
       text-decoration: none;
+      color: var(--text-main);
     }
-    .navbar .logo sup {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
+    .navbar .logo img {
+      width: 38px;
+      height: 38px;
+      display: block;
+    }
+    .navbar .logo .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .navbar .logo .logo-name {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 19px;
       font-weight: 600;
-      letter-spacing: 0;
-      vertical-align: super;
-      margin-left: 2px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+    .navbar .logo .logo-sub {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.31em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
     .navbar .menu-btn {
       display: flex;
       align-items: center;
       gap: 8px;
-      background: var(--button-bg);
-      color: var(--button-text);
-      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      border: 1px solid var(--border-soft);
       padding: 8px 18px 8px 20px;
       border-radius: 100px;
       font-family: 'Inter', sans-serif;
@@ -181,8 +233,7 @@
       transition: all 0.3s ease;
     }
     .navbar .menu-btn:hover {
-      opacity: 0.85;
-      transform: scale(1.02);
+      background: rgba(255, 255, 255, 0.2);
     }
     .navbar .menu-btn svg {
       width: 16px;
@@ -226,7 +277,7 @@
       font-size: 48px;
       font-weight: 500;
       letter-spacing: -0.04em;
-      color: var(--text);
+      color: var(--text-main);
       text-decoration: none;
       transition: color 0.3s ease;
     }
@@ -244,8 +295,8 @@
        HERO
        ============================================================ */
     .hero {
-      min-height: 850px;
-      padding: 160px 36px;
+      min-height: 780px;
+      padding: 160px 36px 120px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -256,25 +307,22 @@
       background: var(--bg);
     }
 
-    /* Background image via pseudo */
+    /* Glow suave atrás do título */
     .hero::before {
       content: '';
       position: absolute;
-      inset: 0;
-      z-index: 0;
-      background-image: url('https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260626_041422_4a459e05-abce-4150-9fb7-4ededc423cd1.png&w=1280&q=85');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.15;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(255, 255, 255, 0.045), transparent 65%);
       pointer-events: none;
+      z-index: 0;
     }
+    .hero > * { position: relative; z-index: 1; }
 
-    .hero * {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ===== CURVED LINES (esquerda) ===== */
+    /* ===== CURVED LINES ===== */
     .lines-left,
     .lines-right {
       position: absolute;
@@ -286,29 +334,18 @@
       z-index: 0;
       pointer-events: none;
     }
-    .lines-left {
-      left: 24px;
-    }
-    .lines-right {
-      right: 24px;
-    }
+    .lines-left { left: 24px; }
+    .lines-right { right: 24px; }
     .line-item {
       width: 60px;
       height: 14px;
-      border: 2.5px solid #FCFAF8;
+      border: 2.5px solid rgba(255, 255, 255, 0.05);
       opacity: 0;
       animation: line-pulse 5s ease-in-out infinite;
     }
-    .lines-left .line-item {
-      border-left: none;
-      border-radius: 0 80% 80% 0;
-    }
-    .lines-right .line-item {
-      border-right: none;
-      border-radius: 80% 0 0 80%;
-    }
+    .lines-left .line-item { border-left: none; border-radius: 0 80% 80% 0; }
+    .lines-right .line-item { border-right: none; border-radius: 80% 0 0 80%; }
 
-    /* Staggered delays */
     .lines-left .line-item:nth-child(1) { animation-delay: 0.0s; width: 60px; }
     .lines-left .line-item:nth-child(2) { animation-delay: 0.25s; width: 70px; }
     .lines-left .line-item:nth-child(3) { animation-delay: 0.5s; width: 80px; }
@@ -353,14 +390,14 @@
 
     @keyframes line-pulse {
       0% { opacity: 0; transform: scale(1); }
-      15% { opacity: 0.9; }
-      70% { opacity: 0.4; }
+      15% { opacity: 0.6; }
+      70% { opacity: 0.2; }
       100% { opacity: 0; transform: scale(0.85); }
     }
 
     /* ===== TICKER / MARQUEE ===== */
     .ticker {
-      max-width: 500px;
+      max-width: 700px;
       height: 36px;
       overflow: hidden;
       mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
@@ -377,7 +414,8 @@
       flex-shrink: 0;
       padding: 6px 14px;
       border-radius: 100px;
-      background: rgb(251, 251, 251);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-soft);
       font-size: 13px;
       font-weight: 500;
       color: var(--muted);
@@ -389,32 +427,28 @@
       to { transform: translateX(-50%); }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-track { animation: none; }
+      .line-item, .hero .lines-top .line-item { animation: none; opacity: 0.25; }
+    }
+
     /* ===== TITLE ===== */
     .hero h1 {
-      max-width: 550px;
-      font-size: 82px;
+      max-width: 700px;
+      font-size: 74px;
       font-weight: 600;
-      letter-spacing: -0.07em;
-      line-height: 1.03;
+      letter-spacing: -0.05em;
+      line-height: 1.1;
       margin: 0 auto;
-    }
-    .hero h1 .serif-italic {
-      font-weight: 600;
-      letter-spacing: -0.08em;
-    }
-    .hero h1 sup {
-      font-family: 'Inter', sans-serif;
-      font-size: 24px;
-      font-weight: 600;
-      vertical-align: super;
+      color: var(--text-main);
     }
 
     /* ===== SUBTITLE ===== */
     .hero .sub {
-      max-width: 476px;
+      max-width: 650px;
       font-size: 17px;
-      line-height: 1.45;
-      color: var(--muted);
+      line-height: 1.6;
+      color: var(--text-body);
       margin: 16px auto 28px;
     }
 
@@ -432,7 +466,7 @@
       border-radius: 100px;
       background: var(--button-bg);
       color: var(--button-text);
-      border: none;
+      border: 1px solid rgba(255, 255, 255, 0.15);
       font-family: 'Inter', sans-serif;
       font-size: 15px;
       font-weight: 600;
@@ -444,16 +478,16 @@
       justify-content: center;
     }
     .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+      transform: translateY(-2px);
+      border-color: var(--text-body);
     }
 
     .btn-book {
       display: flex;
       align-items: center;
       gap: 12px;
-      background: var(--bg);
-      border: 4px solid rgb(248, 248, 248);
+      border: 1px solid var(--border-soft);
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 100px;
       padding: 8px 24px 8px 8px;
       cursor: pointer;
@@ -461,8 +495,8 @@
       text-decoration: none;
     }
     .btn-book:hover {
-      border-color: var(--border-soft);
-      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
     }
     .btn-book .avatar-placeholder {
       width: 40px;
@@ -487,12 +521,12 @@
     .btn-book .texts .primary {
       font-size: 14px;
       font-weight: 600;
-      color: var(--text);
+      color: var(--text-main);
     }
     .btn-book .texts .secondary {
       font-size: 12px;
       font-weight: 500;
-      color: rgb(152, 152, 152);
+      color: var(--muted);
       display: flex;
       align-items: center;
       gap: 6px;
@@ -512,9 +546,43 @@
       left: 0;
       right: 0;
       height: 178px;
-      background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.4) 40%, #ffffff 100%);
+      background: linear-gradient(to bottom, transparent 0%, rgba(18,18,18,0.4) 40%, #121212 100%);
       pointer-events: none;
       z-index: 1;
+    }
+
+    /* ============================================================
+       LAYOUT DA ABORDAGEM COM IMAGEM
+       ============================================================ */
+    .abordagem-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .abordagem-texto {
+      display: flex;
+      flex-direction: column;
+    }
+    /* Dentro da coluna de texto, os 4 cards ficam 2x2 — em 3 colunas
+       eles espremem uma palavra por linha */
+    .abordagem-texto .grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .abordagem-imagem {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      object-fit: cover;
+      height: 450px;
+      filter: grayscale(40%) brightness(0.7) contrast(1.1);
+      opacity: 0.9;
+      transition: filter 0.5s ease, opacity 0.5s ease;
+    }
+    .abordagem-imagem:hover {
+      filter: grayscale(10%) brightness(0.85) contrast(1.05);
+      opacity: 1;
     }
 
     /* ============================================================
@@ -539,55 +607,16 @@
       letter-spacing: -0.05em;
       line-height: 1.1;
       margin-bottom: 16px;
+      color: var(--text-main);
     }
     .section .desc {
       font-size: 17px;
-      color: var(--muted);
-      max-width: 560px;
+      color: var(--text-body);
+      max-width: 580px;
       line-height: 1.6;
     }
 
-    /* Layout assimétrico da seção Abordagem: texto+cards à esquerda, imagem à direita */
-    .abordagem-layout {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 56px;
-      align-items: start;
-      margin-top: 40px;
-    }
-    .abordagem-texto .grid-3 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .abordagem-imagem {
-      width: 100%;
-      height: 100%;
-      min-height: 480px;
-      object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
-      position: sticky;
-      top: 100px;
-    }
-    @media (max-width: 900px) {
-      .abordagem-layout {
-        grid-template-columns: 1fr;
-      }
-      .abordagem-imagem {
-        min-height: 320px;
-        position: static;
-        order: -1;
-      }
-      .abordagem-texto .grid-3 {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    @media (max-width: 560px) {
-      .abordagem-texto .grid-3 {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Grid de serviços */
+    /* Grid de serviços (Dark Glassmorphism + spotlight do mouse) */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -595,16 +624,30 @@
       margin-top: 40px;
     }
     .grid-3 .card {
-      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-card);
       border: 1px solid var(--border-soft);
-      border-radius: 16px;
+      border-radius: 20px;
       padding: 32px 24px;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .grid-3 .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.07), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
     }
     .grid-3 .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+      transform: translateY(-6px);
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
     }
+    .grid-3 .card:hover::after { opacity: 1; }
     .grid-3 .card .tag {
       font-size: 12px;
       font-weight: 600;
@@ -618,10 +661,11 @@
       font-weight: 600;
       letter-spacing: -0.03em;
       margin-bottom: 8px;
+      color: var(--text-main);
     }
     .grid-3 .card p {
       font-size: 15px;
-      color: var(--muted);
+      color: var(--text-body);
       line-height: 1.6;
     }
 
@@ -644,6 +688,7 @@
     }
     .article-row:hover {
       padding-left: 12px;
+      border-color: rgba(255, 255, 255, 0.2);
     }
     .article-row .meta {
       display: flex;
@@ -654,12 +699,13 @@
     }
     .article-row .meta .tag {
       font-weight: 600;
-      color: var(--text);
+      color: var(--text-main);
     }
     .article-row h4 {
       font-size: 17px;
       font-weight: 500;
       letter-spacing: -0.02em;
+      color: var(--text-main);
     }
     .article-row .arrow {
       font-size: 18px;
@@ -668,7 +714,7 @@
     }
     .article-row:hover .arrow {
       transform: translateX(6px);
-      color: var(--text);
+      color: var(--text-main);
     }
 
     /* Contato */
@@ -678,15 +724,16 @@
       gap: 48px;
       margin-top: 32px;
       padding: 40px;
-      background: var(--bg);
+      background: var(--bg-card);
       border: 1px solid var(--border-soft);
-      border-radius: 16px;
+      border-radius: 20px;
     }
     .contact-grid .info h3 {
       font-size: 24px;
       font-weight: 600;
       letter-spacing: -0.03em;
       margin-bottom: 4px;
+      color: var(--text-main);
     }
     .contact-grid .info .oab {
       font-size: 14px;
@@ -697,6 +744,7 @@
       font-size: 20px;
       font-weight: 600;
       margin-top: 8px;
+      color: var(--text-main);
     }
     .contact-grid .form input,
     .contact-grid .form textarea {
@@ -708,11 +756,16 @@
       font-size: 15px;
       transition: border-color 0.3s ease;
       background: var(--bg);
+      color: var(--text-main);
+    }
+    .contact-grid .form input::placeholder,
+    .contact-grid .form textarea::placeholder {
+      color: var(--muted);
     }
     .contact-grid .form input:focus,
     .contact-grid .form textarea:focus {
       outline: none;
-      border-color: var(--text);
+      border-color: var(--text-body);
     }
     .contact-grid .form .row {
       display: grid;
@@ -746,11 +799,12 @@
       color: var(--muted);
     }
     .footer a {
-      color: var(--text);
+      color: var(--text-body);
       text-decoration: none;
+      transition: color 0.3s ease;
     }
     .footer a:hover {
-      text-decoration: underline;
+      color: var(--text-main);
     }
 
     /* ============================================================
@@ -758,10 +812,10 @@
        ============================================================ */
     @media (max-width: 1200px) {
       .hero {
-        padding: 140px 32px;
+        padding: 140px 32px 110px;
       }
       .hero h1 {
-        font-size: clamp(60px, 8vw, 72px);
+        font-size: clamp(56px, 8vw, 68px);
       }
       .navbar {
         padding: 16px 32px;
@@ -773,17 +827,11 @@
 
     @media (max-width: 810px) {
       .hero {
-        min-height: 760px;
+        min-height: 720px;
         padding: 120px 24px 96px;
       }
-      .hero::before {
-        transform: rotate(90deg) scale(1.5);
-      }
-      .lines-left,
-      .lines-right {
-        display: none;
-      }
-      /* Horizontal lines no topo (adaptação mobile) */
+      .lines-left, .lines-right { display: none; }
+
       .hero .lines-top {
         display: flex;
         gap: 6px;
@@ -794,7 +842,7 @@
       .hero .lines-top .line-item {
         width: 40px;
         height: 6px;
-        border: 2px solid #FCFAF8;
+        border: 2px solid rgba(255, 255, 255, 0.05);
         border-bottom: none;
         border-radius: 80% 80% 0 0;
         opacity: 0;
@@ -821,52 +869,28 @@
       .hero .lines-top .line-item:nth-child(19) { animation-delay: 4.5s; }
       .hero .lines-top .line-item:nth-child(20) { animation-delay: 4.75s; }
 
-      .hero h1 {
-        font-size: clamp(44px, 13vw, 52px);
-      }
-      .cta-row {
-        flex-direction: column;
-        width: 100%;
-        max-width: 320px;
-        margin: 0 auto;
-      }
-      .cta-row .btn-primary,
-      .cta-row .btn-book {
-        width: 100%;
-        justify-content: center;
-      }
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-      .contact-grid {
-        grid-template-columns: 1fr;
-        padding: 24px;
-      }
-      .contact-grid .form .row {
-        grid-template-columns: 1fr;
-      }
-      .drawer .links a {
-        font-size: 32px;
-      }
-      .navbar {
-        padding: 14px 20px;
-      }
-      .section {
-        padding: 60px 20px;
-      }
-      .hero .sub {
-        font-size: 16px;
-      }
+      .hero h1 { font-size: clamp(38px, 12vw, 48px); }
+      .cta-row { flex-direction: column; width: 100%; max-width: 320px; margin: 0 auto; }
+      .cta-row .btn-primary, .cta-row .btn-book { width: 100%; justify-content: center; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; padding: 24px; }
+      .contact-grid .form .row { grid-template-columns: 1fr; }
+      .drawer .links a { font-size: 32px; }
+      .navbar { padding: 14px 20px; }
+      .navbar .logo img { width: 32px; height: 32px; }
+      .navbar .logo .logo-name { font-size: 16px; }
+      .navbar .logo .logo-sub { font-size: 7.5px; }
+      .section { padding: 60px 20px; }
+      .hero .sub { font-size: 16px; }
+
+      .abordagem-layout { grid-template-columns: 1fr; gap: 24px; }
+      .abordagem-imagem { height: 250px; }
+      .abordagem-texto .grid-3 { grid-template-columns: 1fr; }
     }
 
-    /* Mostrar lines-top apenas no mobile, esconder no desktop */
-    .hero .lines-top {
-      display: none;
-    }
+    .hero .lines-top { display: none; }
     @media (max-width: 810px) {
-      .hero .lines-top {
-        display: flex;
-      }
+      .hero .lines-top { display: flex; }
     }
   </style>
 </head>
@@ -875,8 +899,14 @@
   <!-- ============================================================
        NAVBAR
        ============================================================ -->
-  <nav class="navbar">
-    <a class="logo" href="/">GAT<sup>®</sup></a>
+  <nav class="navbar" id="navbar">
+    <a class="logo" href="/">
+      <img src="gat-marca.png" alt="" width="38" height="38" />
+      <span class="logo-text">
+        <span class="logo-name">Gonçalves</span>
+        <span class="logo-sub">Advocacia Tributária</span>
+      </span>
+    </a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer">
       Menu
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
@@ -901,7 +931,7 @@
        ============================================================ -->
   <section class="hero" id="top">
     <!-- Curved lines - left -->
-    <div class="lines-left">
+    <div class="lines-left" aria-hidden="true">
       <div class="line-item"></div><div class="line-item"></div><div class="line-item"></div>
       <div class="line-item"></div><div class="line-item"></div><div class="line-item"></div>
       <div class="line-item"></div><div class="line-item"></div><div class="line-item"></div>
@@ -912,7 +942,7 @@
     </div>
 
     <!-- Curved lines - right -->
-    <div class="lines-right">
+    <div class="lines-right" aria-hidden="true">
       <div class="line-item"></div><div class="line-item"></div><div class="line-item"></div>
       <div class="line-item"></div><div class="line-item"></div><div class="line-item"></div>
       <div class="line-item"></div><div class="line-item"></div><div class="line-item"></div>
@@ -922,8 +952,7 @@
       <div class="line-item"></div><div class="line-item"></div>
     </div>
 
-    <!-- Horizontal lines (mobile) -->
-    <div class="lines-top">
+    <div class="lines-top" aria-hidden="true">
       <div class="line-item"></div><div class="line-item"></div><div class="line-item"></div>
       <div class="line-item"></div><div class="line-item"></div><div class="line-item"></div>
       <div class="line-item"></div><div class="line-item"></div><div class="line-item"></div>
@@ -934,35 +963,32 @@
     </div>
 
     <!-- Ticker -->
-    <div class="ticker">
+    <div class="ticker reveal d1">
       <div class="ticker-track">
         <span>Autuações Fiscais</span>
         <span>Planejamento Tributário</span>
         <span>Recuperação de Créditos</span>
         <span>Execução Fiscal</span>
         <span>Zona Franca de Manaus</span>
-        <!-- Duplicado para loop infinito -->
+        <span>Tributação de Pessoas Físicas</span>
         <span>Autuações Fiscais</span>
         <span>Planejamento Tributário</span>
         <span>Recuperação de Créditos</span>
         <span>Execução Fiscal</span>
         <span>Zona Franca de Manaus</span>
+        <span>Tributação de Pessoas Físicas</span>
       </div>
     </div>
 
-    <!-- Title -->
-    <h1>
-      Direito tributário <br>
-      <span class="serif-italic">de precisão</span><sup>®</sup>
+    <h1 class="reveal d2">
+      Você sabe qual é o seu risco tributário?
     </h1>
 
-    <!-- Subtitle -->
-    <p class="sub">
-      Escritório especializado na defesa de autuações, planejamento fiscal e recuperação de créditos. Atuação nacional com dedicação integral dos sócios a cada caso.
+    <p class="sub reveal d3">
+      Defesa de autuações fiscais, planejamento tributário e recuperação de créditos tributários. Atuação em todo o Brasil, com conhecimento aprofundado dos incentivos da Zona Franca de Manaus.
     </p>
 
-    <!-- CTA Row -->
-    <div class="cta-row">
+    <div class="cta-row reveal d4">
       <a class="btn-primary" href="https://wa.me/5592981267195?text=Ol%C3%A1%2C%20gostaria%20de%20iniciar%20um%20diagn%C3%B3stico%20tribut%C3%A1rio." target="_blank" rel="noopener noreferrer">Iniciar diagnóstico</a>
 
       <a class="btn-book" href="https://wa.me/5592981267195?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20GAT." target="_blank" rel="noopener noreferrer">
@@ -977,7 +1003,6 @@
       </a>
     </div>
 
-    <!-- Progressive blur -->
     <div class="hero-blur"></div>
   </section>
 
@@ -985,41 +1010,44 @@
        ABORDAGEM
        ============================================================ -->
   <section class="section" id="abordagem">
-    <div class="label">Abordagem</div>
-    <h2>Atenção dedicada, <br>do diagnóstico à decisão.</h2>
+    <div class="label inview">Abordagem</div>
+    <h2 class="inview">Primeiro o diagnóstico. Depois, a estratégia.</h2>
 
     <div class="abordagem-layout">
       <div class="abordagem-texto">
-        <p class="desc" style="max-width:100%;margin-bottom:8px;">A GAT nasceu para operar onde a complexidade tributária exige mais do que uma visão superficial. Em escritórios de grande escala, o caso atravessa múltiplas mãos — cada etapa, um novo interlocutor. Aqui, a estrutura é deliberadamente enxuta.</p>
+        <p class="desc inview" style="margin-bottom: 24px; max-width: 100%;">
+          Um caso tributário complexo exige duas coisas ao mesmo tempo: estrutura suficiente para sustentar a demanda e continuidade suficiente para não perder o contexto pelo caminho. Na GAT, as duas acontecem juntas. A equipe responsável pelo diagnóstico é a mesma que conduz a estratégia e permanece até o encerramento do caso — com o suporte técnico necessário para acompanhar operações de médio e grande porte, sem repasses no meio do caminho.
+        </p>
 
-        <div class="grid-3">
-          <div class="card">
+        <div class="grid-3" style="margin-top: 0;">
+          <div class="card inview">
             <div class="tag">I</div>
             <h3>Diagnóstico</h3>
-            <p>Imersão nos fatos, documentos e bases legais antes de qualquer definição de tese.</p>
+            <p>Antes de qualquer tese, uma imersão real nos documentos, no histórico fiscal e no contexto operacional do seu caso.</p>
           </div>
-          <div class="card">
+          <div class="card inview dl1">
             <div class="tag">II</div>
             <h3>Estratégia</h3>
-            <p>Construída a partir da realidade específica do cliente e da jurisprudência aplicável.</p>
+            <p>Construída a partir dos fatos do seu caso e da jurisprudência aplicável — nunca de um modelo genérico replicado de outro cliente.</p>
           </div>
-          <div class="card">
+          <div class="card inview dl2">
             <div class="tag">III</div>
             <h3>Comunicação</h3>
-            <p>Tradução da complexidade tributária em linguagem acessível, sem simplificações.</p>
+            <p>Cada decisão explicada em linguagem clara, para que você entenda as opções antes de escolher um caminho — não depois.</p>
           </div>
-          <div class="card">
+          <div class="card inview dl3">
             <div class="tag">IV</div>
             <h3>Continuidade</h3>
-            <p>A equipe que inicia o caso permanece na condução até o encerramento.</p>
+            <p>A mesma equipe responsável assina o caso do diagnóstico ao encerramento, com a estrutura necessária para sustentar demandas de qualquer porte.</p>
           </div>
         </div>
       </div>
 
+      <!-- IMAGEM DO PRÉDIO CLÁSSICO -->
       <img
-        src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260626_041422_4a459e05-abce-4150-9fb7-4ededc423cd1.png&w=1280&q=85"
-        alt="Biblioteca clássica do escritório GAT"
-        class="abordagem-imagem"
+        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
+        alt="Fachada clássica de um edifício corporativo"
+        class="abordagem-imagem inview dl1"
         loading="lazy"
         onerror="this.style.display='none'"
       />
@@ -1029,41 +1057,41 @@
   <!-- ============================================================
        ÁREAS DE ATUAÇÃO
        ============================================================ -->
-  <section class="section" id="areas" style="background:var(--border-soft);border-radius:24px;padding:80px 36px;">
-    <div class="label">Áreas de atuação</div>
-    <h2>Soluções projetadas <br>sob medida.</h2>
-    <p class="desc">Defesa de autuações, planejamento fiscal, recuperação de créditos, execução fiscal e incentivos da Zona Franca de Manaus.</p>
+  <section class="section" id="areas" style="background:var(--bg-card);border-radius:24px;padding:80px 36px;">
+    <div class="label inview">Áreas de atuação</div>
+    <h2 class="inview">Cada situação tributária pede uma resposta diferente.</h2>
+    <p class="desc inview">De uma autuação recém-recebida a um planejamento para os próximos anos, cada uma das frentes abaixo responde a um momento diferente da vida fiscal de uma empresa ou de uma pessoa física.</p>
 
     <div class="grid-3">
-      <div class="card">
+      <div class="card inview" style="background:var(--bg);">
         <div class="tag">Defesa</div>
         <h3>Autuações Fiscais</h3>
-        <p>Contencioso administrativo e judicial em autos de infração da Receita Federal e SEFAZ.</p>
+        <p>Defesa administrativa e judicial de autuações da Receita Federal e da SEFAZ-AM, com atenção aos prazos e às provas que sustentam o caso.</p>
       </div>
-      <div class="card">
+      <div class="card inview dl1" style="background:var(--bg);">
         <div class="tag">Estratégia</div>
         <h3>Planejamento Tributário</h3>
-        <p>Revisão de regimes tributários, modelagem de operações e identificação de incentivos fiscais.</p>
+        <p>Revisão de regime tributário, modelagem de operações e identificação de oportunidades legítimas de economia fiscal dentro da legislação vigente.</p>
       </div>
-      <div class="card">
+      <div class="card inview dl2" style="background:var(--bg);">
         <div class="tag">Recuperação</div>
         <h3>Créditos Tributários</h3>
-        <p>Análise sistemática de recolhimentos para identificação de pagamentos indevidos ou a maior.</p>
+        <p>Análise sistemática dos recolhimentos dos últimos anos para identificar pagamentos indevidos ou a maior, com potencial de recuperação ou compensação.</p>
       </div>
-      <div class="card">
+      <div class="card inview" style="background:var(--bg);">
         <div class="tag">Execução</div>
         <h3>Execução Fiscal</h3>
-        <p>Atuação em execuções fiscais com foco em exceções de pré-executividade e embargos.</p>
+        <p>Atuação em execuções fiscais, com foco em exceções de pré-executividade e embargos.</p>
       </div>
-      <div class="card">
+      <div class="card inview dl1" style="background:var(--bg);">
         <div class="tag">Incentivos</div>
         <h3>Zona Franca de Manaus</h3>
-        <p>Consultoria para aprovação de projetos na SUFRAMA e adequação ao Processo Produtivo Básico.</p>
+        <p>Suporte para adequação ao Processo Produtivo Básico (PPB), aprovação de projetos na SUFRAMA e prevenção de perda de incentivos fiscais da ZFM.</p>
       </div>
-      <div class="card">
+      <div class="card inview dl2" style="background:var(--bg);">
         <div class="tag">Pessoa Física</div>
         <h3>Tributação de Pessoas Físicas</h3>
-        <p>Planejamento e revisão da tributação de pessoas físicas com alto patrimônio ou renda variável.</p>
+        <p>Planejamento sucessório e revisão da tributação de pessoas físicas com patrimônio ou renda variável — com discrição e antecedência.</p>
       </div>
     </div>
   </section>
@@ -1072,9 +1100,9 @@
        ARTIGOS
        ============================================================ -->
   <section class="section" id="artigos">
-    <div class="label">Publicações</div>
-    <h2>Análises técnicas sobre <br>direito tributário.</h2>
-    <p class="desc">Artigos sobre contencioso tributário, incentivos da Zona Franca de Manaus e temas do dia a dia fiscal.</p>
+    <div class="label inview">Publicações</div>
+    <h2 class="inview">Para entender antes de decidir.</h2>
+    <p class="desc inview">Artigos sobre autuações fiscais, planejamento tributário e incentivos da Zona Franca de Manaus — escritos para ajudar você a entender o problema, não para vender um serviço.</p>
 
     <div class="article-list" id="articleList">
       <p style="color:var(--muted);text-align:center;padding:40px;">Carregando artigos...</p>
@@ -1088,18 +1116,18 @@
   <!-- ============================================================
        CONTATO
        ============================================================ -->
-  <section class="section" id="contato" style="background:var(--border-soft);border-radius:24px;padding:80px 36px;">
-    <div class="label">Fale conosco</div>
-    <h2>A conversa <br>começa aqui.</h2>
-    <p class="desc">Autuação recebida. Questão tributária em aberto. Basta uma conversa para definir os próximos passos.</p>
+  <section class="section" id="contato" style="background:var(--bg-card);border-radius:24px;padding:80px 36px;">
+    <div class="label inview">Fale conosco</div>
+    <h2 class="inview">A conversa começa aqui.</h2>
+    <p class="desc inview">Autuação recebida. Operação em revisão. Planejamento a definir. Uma conversa já ajuda a entender os próximos passos.</p>
 
-    <div class="contact-grid">
+    <div class="contact-grid inview">
       <div class="info">
         <h3>Raphael da Silva Gonçalves</h3>
         <div class="oab">OAB/AM 18.561</div>
         <div class="phone">(92) 98126-7195</div>
         <p style="margin-top:4px;font-size:15px;color:var(--muted);">
-          <a href="mailto:raphael@gat.adv.br" style="color:var(--text);">raphael@gat.adv.br</a>
+          <a href="mailto:raphael@gat.adv.br" style="color:var(--text-body);">raphael@gat.adv.br</a>
         </p>
         <p style="margin-top:12px;font-size:14px;color:var(--muted);">Atendimento em todo o Brasil</p>
       </div>
@@ -1128,7 +1156,7 @@
         <label for="f-assunto" class="sr-only">Assunto</label>
         <input id="f-assunto" type="text" name="assunto" placeholder="Assunto" required style="margin-bottom:12px" />
         <label for="f-mensagem" class="sr-only">Mensagem</label>
-        <textarea id="f-mensagem" name="mensagem" placeholder="Mensagem" rows="4"></textarea>
+        <textarea id="f-mensagem" name="mensagem" placeholder="Descreva brevemente sua situação (opcional)" rows="4"></textarea>
         <button type="submit" class="btn-primary" id="btnEnviar">Enviar mensagem</button>
         <p id="formFeedback" style="display:none;margin-top:12px;font-size:14px;font-weight:500;"></p>
       </form>
@@ -1144,7 +1172,7 @@
       <span style="font-size:13px;color:var(--muted);">© 2026 · Todos os direitos reservados</span>
     </div>
     <div style="display:flex;gap:24px;flex-wrap:wrap;">
-      <a href="#abordagem">Sobre</a>
+      <a href="#abordagem">Abordagem</a>
       <a href="#areas">Áreas</a>
       <a href="#artigos">Artigos</a>
       <a href="#contato">Contato</a>
@@ -1179,6 +1207,44 @@
         drawerOpen = false;
         menuBtn.setAttribute('aria-expanded', 'false');
         menuBtn.innerHTML = 'Menu <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>';
+      });
+    });
+
+    // ============================================================
+    // NAVBAR — estado ao rolar
+    // ============================================================
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+      navbar.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    // ============================================================
+    // MOTION — reveals de scroll (IntersectionObserver)
+    // ============================================================
+    (function() {
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.inview').forEach(function(el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+      document.querySelectorAll('.inview').forEach(function(el) { io.observe(el); });
+    })();
+
+    // ============================================================
+    // MOTION — spotlight que segue o mouse nos cards
+    // ============================================================
+    document.querySelectorAll('.grid-3 .card').forEach(function(card) {
+      card.addEventListener('pointermove', function(e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
       });
     });
 
@@ -1242,7 +1308,7 @@
       }).then(function(r) {
         if (r.ok) {
           feedback.style.display = 'block';
-          feedback.style.color = '#17c964';
+          feedback.style.color = 'var(--green)';
           feedback.textContent = '✓ Mensagem enviada. Retornaremos em breve.';
           form.reset();
         } else {
@@ -1250,7 +1316,7 @@
         }
       }).catch(function() {
         feedback.style.display = 'block';
-        feedback.style.color = '#c0392b';
+        feedback.style.color = '#e05c5c';
         feedback.textContent = 'Erro ao enviar. Tente pelo WhatsApp.';
       }).finally(function() {
         btn.disabled = false;
