@@ -31,6 +31,6 @@ Os incentivos de PIS/COFINS já reconhecidos pela SUFRAMA para empresas com proj
 
 Empresas que vendem produtos ou prestam serviços dentro da Zona Franca de Manaus — inclusive para pessoas físicas — e que vêm recolhendo PIS e COFINS sobre essas receitas têm, agora, uma tese consolidada pelo STJ para reavaliar essa cobrança, inclusive quanto à possibilidade de reaver valores pagos nos últimos anos, dentro do prazo prescricional aplicável.
 
-Leia também: [Zona Franca de Manaus: o regime fiscal e o que uma empresa estrangeira precisa estruturar para operar no Polo Industrial](/artigos/2026-07-08-zona-franca-manaus-empresa-estrangeira.html).
+Leia também: [ICMS na Zona Franca de Manaus: os quatro incentivos estaduais e quem aprova cada um](/artigos/2026-07-23-icms-zona-franca-manaus-incentivos-codam.html).
 
 Se sua empresa vende produtos ou presta serviços dentro da Zona Franca de Manaus, fale com a nossa equipe para avaliar se essa tese do STJ se aplica às suas operações e ao seu histórico de recolhimento.

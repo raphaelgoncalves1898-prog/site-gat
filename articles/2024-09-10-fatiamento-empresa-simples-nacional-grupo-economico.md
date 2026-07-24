@@ -79,8 +79,6 @@ O resultado prático de um fatiamento identificado pela Receita Federal costuma 
 
 *Acórdão de referência: CARF, Acórdão nº 1003-002.244 — 1ª Seção de Julgamento / 3ª Turma Extraordinária, Processo nº 15586.720439/2014-08, julgado em 09 de março de 2021.*
 
-Leia também:
-- [Transação Tributária: negociação de débitos fiscais como instrumento de reorganização empresarial](/artigos/2026-07-08-transacao-tributaria.html)
-- [Zona Franca de Manaus: o regime fiscal e o que uma empresa estrangeira precisa estruturar para operar no Polo Industrial](/artigos/2026-07-08-zona-franca-manaus-empresa-estrangeira.html)
+Leia também: [Transação Tributária: negociação de débitos fiscais como instrumento de reorganização empresarial](/artigos/2026-07-08-transacao-tributaria.html).
 
 Se sua empresa tem mais de um CNPJ dentro do mesmo grupo familiar, fale com a nossa equipe para um mapeamento honesto da estrutura antes de uma auditoria chegar até você.
