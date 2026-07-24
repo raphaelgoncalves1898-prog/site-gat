@@ -99,4 +99,6 @@ Laudo médico pericial que comprove o diagnóstico — pode ser da rede pública
 
 Da data do laudo, se a doença surgiu após a aposentadoria; ou da data da aposentadoria, se a doença já existia antes dela.
 
+Leia também: [Como retificar a declaração de Imposto de Renda e pedir restituição](/artigos/2026-07-23-retificacao-declaracao-ir-restituicao.html).
+
 Se você ou um familiar está nessa situação, fale com a nossa equipe para entender se o laudo e a documentação já reunidos são suficientes para o pedido.
