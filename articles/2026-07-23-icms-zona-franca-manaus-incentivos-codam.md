@@ -28,6 +28,8 @@ O aproveitamento dos incentivos estaduais depende da aprovação de projeto espe
 
 Os percentuais de cada incentivo variam conforme o produto e podem ser atualizados por norma estadual — por isso, antes de projetar o impacto tributário de uma operação, vale confirmar o enquadramento vigente para o produto específico, e não apenas o percentual mais divulgado.
 
-Leia também: [PIS e COFINS na Zona Franca de Manaus: o STJ confirma a isenção sobre vendas e serviços](/artigos/2026-07-23-pis-cofins-zona-franca-manaus-stj-tema-1239.html).
+Leia também:
+- [PIS e COFINS na Zona Franca de Manaus: o STJ confirma a isenção sobre vendas e serviços](/artigos/2026-07-23-pis-cofins-zona-franca-manaus-stj-tema-1239.html)
+- [Reforma Tributária do Consumo: um resumo geral do que muda e quando](/artigos/2026-07-23-reforma-tributaria-consumo-resumo-cronograma.html)
 
 Se sua empresa opera ou pretende operar no Polo Industrial de Manaus, fale com a nossa equipe para mapear quais dos quatro incentivos de ICMS se aplicam ao seu produto e o que o projeto precisa apresentar ao CODAM.
