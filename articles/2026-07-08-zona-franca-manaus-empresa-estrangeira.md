@@ -38,3 +38,5 @@ Para uma empresa estrangeira, a sequência de estruturação envolve a constitui
 O risco mais relevante na operação continuada é o de não conformidade com o PPB. O descumprimento das etapas fabris exigidas implica a perda retroativa dos benefícios sobre as operações realizadas no período — com recolhimento dos tributos dispensados, acrescidos de multa e juros. A fiscalização é exercida tanto pela SUFRAMA quanto pela Receita Federal, e a regularidade do processo produtivo precisa ser comprovável a qualquer momento.
 
 A estruturação correta desde o início — com assessoria especializada no regime da ZFM — é o que distingue operações que aproveitam o regime com segurança daquelas que acumulam passivo fiscal sem perceber.
+
+Leia também: [ICMS na Zona Franca de Manaus: os quatro incentivos estaduais e quem aprova cada um](/artigos/2026-07-23-icms-zona-franca-manaus-incentivos-codam.html).
