@@ -42,3 +42,4 @@ A estruturação correta desde o início — com assessoria especializada no reg
 Leia também:
 - [ICMS na Zona Franca de Manaus: os quatro incentivos estaduais e quem aprova cada um](/artigos/2026-07-23-icms-zona-franca-manaus-incentivos-codam.html)
 - [PIS e COFINS na Zona Franca de Manaus: o STJ confirma a isenção sobre vendas e serviços](/artigos/2026-07-23-pis-cofins-zona-franca-manaus-stj-tema-1239.html)
+- [Fatiamento de empresa e Simples Nacional: quando dividir o negócio vira crime tributário](/artigos/2024-09-10-fatiamento-empresa-simples-nacional-grupo-economico.html)
