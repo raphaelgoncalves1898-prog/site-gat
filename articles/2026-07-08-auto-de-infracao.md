@@ -34,4 +34,6 @@ O problema é que esse prazo é curto e não se estende. Se vence sem manifesta�
 4. Avalie a consistência do lançamento — se os valores e a fundamentação legal usados pela autoridade fiscal estão corretos.
 5. Defina a estratégia adequada dentro do prazo — impugnação administrativa ou outra via, conforme o caso.
 
+Leia também: [Execução fiscal e bloqueio de contas: o que é, como funciona e como reagir](/artigos/2026-07-08-execucao-fiscal-bloqueio-contas.html).
+
 Se sua empresa recebeu um auto de infração, fale com a nossa equipe para entender em que fase o caso está e qual o prazo real que você tem para agir.
