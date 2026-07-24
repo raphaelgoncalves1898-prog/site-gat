@@ -62,4 +62,6 @@ Para patrimônios mais simples, testamento, doações pontuais, organização do
 
 A expectativa de aumento do ITCMD torna a análise mais urgente, não elimina a necessidade de cautela. Antecipar uma doação só para aproveitar a tributação atual pode custar em perda de controle, liquidez ou harmonia familiar mais do que a economia obtida.
 
+Leia também: [Isenção de IPVA para autistas e pessoas com deficiência: quem tem direito](/artigos/2026-07-23-isencao-ipva-deficiencia-autismo.html).
+
 Se o seu patrimônio cresceu, a empresa ainda depende diretamente de você, ou a sucessão nunca foi discutida com profundidade, fale com a nossa equipe para comparar alternativas antes de qualquer decisão.

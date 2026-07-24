@@ -34,4 +34,6 @@ Embora o direito exista de forma parecida em quase todo o Brasil, cada estado de
 
 > Este conteúdo não substitui a consulta à legislação vigente no estado de licenciamento do veículo — as regras específicas de cada Secretaria da Fazenda estadual devem sempre ser conferidas antes do pedido.
 
+Leia também: [Planejamento patrimonial diante da reforma tributária: antecipar ou planejar melhor?](/artigos/2026-07-23-planejamento-patrimonial-reforma-tributaria-itcmd.html).
+
 Se você é responsável por uma pessoa com deficiência ou autismo e quer entender se o seu caso se enquadra nessa isenção, fale com a nossa equipe.
