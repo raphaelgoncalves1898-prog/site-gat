@@ -44,4 +44,6 @@ A transação tributária não serve só para situações de dificuldade finance
 
 Nesses cenários, a negociação estruturada do débito, com aproveitamento dos descontos disponíveis, pode ser mais eficiente do que o pagamento integral ou do que manter o contencioso em aberto por anos.
 
+Leia também: [Recuperação de créditos tributários no Lucro Real: as teses mais pacíficas](/artigos/2026-07-23-recuperacao-creditos-lucro-real-teses.html).
+
 Se sua empresa tem passivo tributário em aberto, fale com a nossa equipe para entender em qual modalidade o débito se enquadra e quais descontos e prazos são aplicáveis ao seu caso.
