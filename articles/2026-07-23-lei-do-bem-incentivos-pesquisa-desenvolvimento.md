@@ -63,4 +63,6 @@ A avaliação do FormP&D é feita por um grupo técnico do próprio MCTI, e os m
 
 Empresas reprovadas podem recorrer, mas o risco de glosa começa muito antes do formulário — começa na forma como o projeto é documentado desde o primeiro dia.
 
+Leia também: [Lei Rouanet: as vantagens de usar o incentivo fiscal à cultura](/artigos/2026-07-23-lei-rouanet-incentivo-fiscal-cultura.html).
+
 Se sua empresa investe em pesquisa e desenvolvimento e apura pelo Lucro Real, fale com a nossa equipe para avaliar se o seu projeto atual atende aos requisitos da Lei do Bem e como estruturar a documentação antes do próximo FormP&D.

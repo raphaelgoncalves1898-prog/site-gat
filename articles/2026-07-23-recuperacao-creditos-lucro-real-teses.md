@@ -39,6 +39,8 @@ No Tema 779, o STJ afastou a interpretação restritiva da Receita Federal e def
 
 Existem outras discussões tributárias relevantes para empresas do Lucro Real — como a tributação de créditos presumidos de ICMS pelo IRPJ/CSLL e a exclusão do ISS da base do PIS/COFINS — que ainda estão sendo julgadas pelos tribunais superiores, sem posição definitiva. Usar essas teses hoje é uma decisão de risco calculado, não uma aplicação automática, e exige acompanhamento próprio antes de qualquer ação.
 
-Leia também: [Transação Tributária: negociação de débitos fiscais como instrumento de reorganização empresarial](/artigos/2026-07-08-transacao-tributaria.html).
+Leia também:
+- [Transação Tributária: negociação de débitos fiscais como instrumento de reorganização empresarial](/artigos/2026-07-08-transacao-tributaria.html)
+- [Lei Rouanet: as vantagens de usar o incentivo fiscal à cultura](/artigos/2026-07-23-lei-rouanet-incentivo-fiscal-cultura.html)
 
 Se sua empresa apura pelo Lucro Real, fale com a nossa equipe para mapear quais dessas teses já se aplicam ao seu histórico fiscal e qual é o potencial de recuperação nos últimos cinco anos.
