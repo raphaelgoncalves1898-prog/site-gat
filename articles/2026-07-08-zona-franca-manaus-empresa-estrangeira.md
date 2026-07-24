@@ -39,4 +39,6 @@ O risco mais relevante na operação continuada é o de não conformidade com o 
 
 A estruturação correta desde o início — com assessoria especializada no regime da ZFM — é o que distingue operações que aproveitam o regime com segurança daquelas que acumulam passivo fiscal sem perceber.
 
-Leia também: [ICMS na Zona Franca de Manaus: os quatro incentivos estaduais e quem aprova cada um](/artigos/2026-07-23-icms-zona-franca-manaus-incentivos-codam.html).
+Leia também:
+- [ICMS na Zona Franca de Manaus: os quatro incentivos estaduais e quem aprova cada um](/artigos/2026-07-23-icms-zona-franca-manaus-incentivos-codam.html)
+- [PIS e COFINS na Zona Franca de Manaus: o STJ confirma a isenção sobre vendas e serviços](/artigos/2026-07-23-pis-cofins-zona-franca-manaus-stj-tema-1239.html)
