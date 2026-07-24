@@ -20,6 +20,8 @@ if (!fs.existsSync(SRC)) { fs.mkdirSync(SRC, { recursive: true }); }
 if (!fs.existsSync(OUT)) { fs.mkdirSync(OUT, { recursive: true }); }
 
 const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+// envolve tabelas do markdown num container com scroll horizontal (mobile)
+const wrapTables = html => String(html || '').replace(/<table>[\s\S]*?<\/table>/g, m => `<div class="art-table-wrap">${m}</div>`);
 const fmtDate = d => { try { return new Date(d).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' }); } catch { return ''; } };
 
 /* ============================================================
@@ -165,6 +167,12 @@ ${NOIR_CSS}
   .art-body blockquote p{margin:0}
   .art-body a{color:var(--text-main);text-decoration:underline;text-underline-offset:3px}
   .art-body strong{font-weight:600;color:var(--text-main)}
+  .art-table-wrap{overflow-x:auto;margin:12px 0 28px;-webkit-overflow-scrolling:touch}
+  .art-body table{width:100%;min-width:420px;border-collapse:collapse;font-size:15px}
+  .art-body th{text-align:left;padding:10px 16px;border-bottom:2px solid var(--border-soft);
+    color:var(--text-main);font-weight:600;white-space:nowrap}
+  .art-body td{padding:12px 16px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+  .art-body tbody tr:hover{background:var(--bg-card)}
   .art-foot{margin-top:56px;padding-top:32px;border-top:1px solid var(--border-soft)}
   .art-foot .disc{margin-top:24px;font-size:12px;color:var(--muted);line-height:1.7}
   @media(max-width:810px){.navbar{padding:14px 20px}article{padding:120px 20px 72px}}
@@ -237,10 +245,10 @@ for (const file of files) {
     slug,
     coverHtml,
     coverUrl: data.cover || '',
-    bodyHtml: marked.parse(content || ''),
+    bodyHtml: wrapTables(marked.parse(content || '')),
     hasZh,
     titleZh: data.title_zh || data.title,
-    bodyZhHtml: hasZh ? marked.parse(data.body_zh || '') : '',
+    bodyZhHtml: hasZh ? wrapTables(marked.parse(data.body_zh || '')) : '',
     faq: data.faq || null,
   });
 
