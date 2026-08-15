@@ -5,7 +5,7 @@
 
 [[redirects]]
   from = "/artigos"
-  to = "/artigos/index.html"
+  to = "/artigos/"
   status = 200
 
 # Cabeçalhos de segurança aplicados a todo o site

@@ -291,7 +291,7 @@ const listPage = `<!DOCTYPE html>
 <meta name="description" content="Análises sobre autuações fiscais, execução fiscal, planejamento tributário e Zona Franca de Manaus, por Raphael da Silva Gonçalves (OAB/AM 18.561)."/>
 <meta name="robots" content="index, follow, max-image-preview:large"/>
 <meta name="theme-color" content="#121212"/>
-<link rel="canonical" href="${SITE_URL}/artigos/index.html"/>
+<link rel="canonical" href="${SITE_URL}/artigos/"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
 <link rel="apple-touch-icon" href="/favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -373,7 +373,7 @@ const toIsoDate = d => { try { return new Date(d).toISOString().split('T')[0]; }
 
 const sitemapUrls = [
   { loc: `${SITE_URL}/`, lastmod: today },
-  { loc: `${SITE_URL}/artigos/index.html`, lastmod: today },
+  { loc: `${SITE_URL}/artigos/`, lastmod: today },
   ...index.map(a => ({
     loc: `${SITE_URL}/artigos/${a.slug}.html`,
     lastmod: a.date ? toIsoDate(a.date) : today,
