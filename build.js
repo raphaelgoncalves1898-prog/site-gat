@@ -22,19 +22,8 @@ if (!fs.existsSync(OUT)) { fs.mkdirSync(OUT, { recursive: true }); }
 const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 // envolve tabelas do markdown num container com scroll horizontal (mobile)
 const wrapTables = html => String(html || '').replace(/<table>[\s\S]*?<\/table>/g, m => `<div class="art-table-wrap">${m}</div>`);
-// Google Analytics — incluído no <head> de todas as páginas geradas (e no index.html / 404.html)
-const GA_SNIPPET = `<!-- Google Analytics (GA4). Cliques em links do WhatsApp contam como contato (generate_lead). -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3NZB8N43LV"></script>
-<script>
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js',new Date());
-  gtag('config','G-3NZB8N43LV');
-  document.addEventListener('click',function(e){
-    var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');
-    if(a){gtag('event','generate_lead',{method:'whatsapp',page_path:location.pathname});}
-  });
-</script>`;
+// Google Analytics com aviso de cookies (ver /gat-analytics.js) — no <head> de todas as páginas geradas
+const GA_SNIPPET = '<script src="/gat-analytics.js"></script>';
 const fmtDate = d => { try { return new Date(d).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' }); } catch { return ''; } };
 
 /* ============================================================
@@ -189,6 +178,7 @@ ${NOIR_CSS}
   .art-body tbody tr:hover{background:var(--bg-card)}
   .art-foot{margin-top:56px;padding-top:32px;border-top:1px solid var(--border-soft)}
   .art-foot .disc{margin-top:24px;font-size:12px;color:var(--muted);line-height:1.7}
+  .art-foot .disc a{color:var(--text-body)}
   @media(max-width:810px){.navbar{padding:14px 20px}article{padding:120px 20px 72px}}
 </style>
 </head>
@@ -220,7 +210,7 @@ ${NOIR_CSS}
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
       <span class="pt-only">Falar com a GAT</span><span class="zh">联系 GAT</span>
     </a>
-    <p class="disc pt-only">Conteúdo informativo, em conformidade com o Provimento nº 205/2021 da OAB. Não constitui aconselhamento jurídico para caso concreto nem promessa de resultado.</p>
+    <p class="disc pt-only">Conteúdo informativo, em conformidade com o Provimento nº 205/2021 da OAB. Não constitui aconselhamento jurídico para caso concreto nem promessa de resultado. <a href="/privacidade.html">Privacidade</a> · <a href="#" data-cookie-prefs>Preferências de cookies</a></p>
     <p class="disc zh">本文仅供参考，符合巴西律师协会第 205/2021 号规定，不构成针对个案的法律意见或结果承诺。</p>
   </div>
 </article>
@@ -488,6 +478,7 @@ ${NOIR_CSS}
   .svc-cta .contact{margin-top:18px;font-size:14px;color:var(--muted)}
   .svc-cta .contact a{color:var(--text-body)}
   .disc{margin-top:32px;font-size:12px;color:var(--muted);line-height:1.7}
+  .disc a{color:var(--text-body)}
   @media (prefers-reduced-motion: no-preference){
     .inview{opacity:0;transform:translateY(22px);
       transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
@@ -526,7 +517,7 @@ ${NOIR_CSS}
     <a class="btn-primary" href="${waHref}" target="_blank" rel="noopener noreferrer">${WA_ICON} Falar pelo WhatsApp</a>
     <p class="contact">Raphael da Silva Gonçalves · OAB/AM 18.561 · <a href="mailto:raphael@gat.adv.br">raphael@gat.adv.br</a></p>
   </section>
-  <p class="disc">Conteúdo informativo, em conformidade com o Provimento nº 205/2021 da OAB. Não constitui aconselhamento jurídico para caso concreto nem promessa de resultado.</p>
+  <p class="disc">Conteúdo informativo, em conformidade com o Provimento nº 205/2021 da OAB. Não constitui aconselhamento jurídico para caso concreto nem promessa de resultado. <a href="/privacidade.html">Privacidade</a> · <a href="#" data-cookie-prefs>Preferências de cookies</a></p>
 </main>
 <script>
   (function(){
@@ -579,6 +570,7 @@ const toIsoDate = d => { try { return new Date(d).toISOString().split('T')[0]; }
 const sitemapUrls = [
   { loc: `${SITE_URL}/`, lastmod: today },
   { loc: `${SITE_URL}/artigos/`, lastmod: today },
+  { loc: `${SITE_URL}/privacidade.html`, lastmod: today },
   ...services.map(s => ({ loc: `${SITE_URL}/servicos/${s}.html`, lastmod: today })),
   ...index.map(a => ({
     loc: `${SITE_URL}/artigos/${a.slug}.html`,
