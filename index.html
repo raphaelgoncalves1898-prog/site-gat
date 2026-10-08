@@ -44,6 +44,7 @@
     "telephone": "+5592981267195",
     "email": "raphael@gat.adv.br",
     "priceRange": "$$",
+    "sameAs": ["https://www.tiktok.com/@gat.advocacia"],
     "areaServed": "BR",
     "address": {
       "@type": "PostalAddress",
@@ -668,6 +669,18 @@
       color: var(--text-body);
       line-height: 1.6;
     }
+    .grid-3 .card .card-link {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    .grid-3 .card .card-link:hover { transform: translateX(4px); }
 
     /* Lista de artigos */
     .article-list {
@@ -1067,6 +1080,7 @@
         <div class="tag">Defesa</div>
         <h3>Autuações Fiscais</h3>
         <p>Defesa administrativa e judicial de autuações da Receita Federal e da SEFAZ-AM, com atenção aos prazos e às provas que sustentam o caso.</p>
+        <a class="card-link" href="/servicos/defesa-auto-de-infracao.html">Recebeu um auto de infração? →</a>
       </div>
       <div class="card inview dl1" style="background:var(--bg);">
         <div class="tag">Estratégia</div>
@@ -1077,6 +1091,7 @@
         <div class="tag">Recuperação</div>
         <h3>Créditos Tributários</h3>
         <p>Análise sistemática dos recolhimentos dos últimos anos para identificar pagamentos indevidos ou a maior, com potencial de recuperação ou compensação.</p>
+        <a class="card-link" href="/servicos/recuperacao-pis-cofins-monofasico.html">PIS/COFINS monofásico no Simples →</a>
       </div>
       <div class="card inview" style="background:var(--bg);">
         <div class="tag">Execução</div>
@@ -1087,11 +1102,13 @@
         <div class="tag">Incentivos</div>
         <h3>Zona Franca de Manaus</h3>
         <p>Suporte para adequação ao Processo Produtivo Básico (PPB), aprovação de projetos na SUFRAMA e prevenção de perda de incentivos fiscais da ZFM.</p>
+        <a class="card-link" href="/servicos/incentivos-zona-franca-de-manaus.html">Incentivos da Zona Franca →</a>
       </div>
       <div class="card inview dl2" style="background:var(--bg);">
         <div class="tag">Pessoa Física</div>
         <h3>Tributação de Pessoas Físicas</h3>
         <p>Planejamento sucessório e revisão da tributação de pessoas físicas com patrimônio ou renda variável — com discrição e antecedência.</p>
+        <a class="card-link" href="/servicos/isencao-ir-doenca-grave.html">Isenção de IR por doença grave →</a>
       </div>
     </div>
   </section>
@@ -1178,6 +1195,7 @@
       <a href="#contato">Contato</a>
       <a href="https://wa.me/5592981267195" target="_blank" rel="noopener noreferrer">(92) 98126-7195</a>
       <a href="mailto:raphael@gat.adv.br">raphael@gat.adv.br</a>
+      <a href="https://www.tiktok.com/@gat.advocacia" target="_blank" rel="noopener noreferrer">TikTok</a>
     </div>
   </footer>
 

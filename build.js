@@ -364,6 +364,195 @@ ${NOIR_CSS}
 </html>`;
 fs.writeFileSync(path.join(OUT, 'index.html'), listPage);
 
+/* ============================================================
+   Páginas de serviço /servicos/*.html
+   Lê /services/*.md (o número no início do nome define a ordem
+   e não entra no endereço). Cada página é a porta de entrada
+   de quem pesquisa um serviço específico ou chega por anúncio.
+   ============================================================ */
+const SVC_SRC = path.join(__dirname, 'services');
+const SVC_OUT = path.join(__dirname, 'servicos');
+if (!fs.existsSync(SVC_OUT)) { fs.mkdirSync(SVC_OUT, { recursive: true }); }
+const WA_NUMBER = '5592981267195';
+const WA_ICON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>';
+
+function servicePage({ slug, title, seoTitle, description, tag, lead, whatsapp, bodyHtml, faq, related }) {
+  const url = `${SITE_URL}/servicos/${slug}.html`;
+  const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(whatsapp || 'Olá, gostaria de falar com a GAT.')}`;
+  const jsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: seoTitle || title,
+    description,
+    serviceType: tag,
+    areaServed: 'BR',
+    url,
+    provider: {
+      '@type': 'LegalService',
+      name: 'GAT — Gonçalves Advocacia Tributária',
+      url: SITE_URL,
+      telephone: '+55 92 98126-7195',
+      address: { '@type': 'PostalAddress', addressLocality: 'Manaus', addressRegion: 'AM', addressCountry: 'BR' },
+    },
+  });
+  const faqJsonLd = (Array.isArray(faq) && faq.length) ? JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  }) : '';
+  const faqHtml = (Array.isArray(faq) && faq.length) ? `
+  <section class="svc-faq">
+    <h2>Perguntas frequentes</h2>
+    ${faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('\n    ')}
+  </section>` : '';
+  const relatedHtml = related.length ? `
+  <section class="svc-related">
+    <h2>Para entender melhor</h2>
+    ${related.map(a => `<a class="item" href="/artigos/${a.slug}.html"><span>${esc(a.title)}</span><span class="arrow">→</span></a>`).join('\n    ')}
+  </section>` : '';
+
+  return `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>${esc(seoTitle || title)} | GAT</title>
+<meta name="description" content="${esc(description)}"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="theme-color" content="#121212"/>
+<link rel="canonical" href="${url}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="GAT — Gonçalves Advocacia Tributária"/>
+<meta property="og:locale" content="pt_BR"/>
+<meta property="og:url" content="${url}"/>
+<meta property="og:title" content="${esc(seoTitle || title)}"/>
+<meta property="og:description" content="${esc(description)}"/>
+<meta property="og:image" content="${SITE_URL}/gat-horizontal.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">${jsonLd}</script>
+${faqJsonLd ? `<script type="application/ld+json">${faqJsonLd}</script>\n` : ''}<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+<link rel="apple-touch-icon" href="/favicon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet"/>
+<style>
+${NOIR_CSS}
+  main{max-width:800px;margin:0 auto;padding:140px 24px 96px}
+  .svc-hero .label{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .svc-hero h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(30px,5vw,46px);
+    line-height:1.15;letter-spacing:-.02em;color:var(--text-main);margin-bottom:20px}
+  .svc-hero .lead{font-size:18px;line-height:1.65;color:var(--text-body);margin-bottom:32px}
+  .svc-hero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+  .svc-hero .note{font-size:13px;color:var(--muted)}
+  .svc-body{font-size:17px;margin-top:64px}
+  .svc-body h2,.svc-faq h2,.svc-related h2,.svc-cta h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;
+    font-size:28px;margin:48px 0 16px;line-height:1.2;letter-spacing:-.02em;color:var(--text-main)}
+  .svc-body h3{font-weight:600;font-size:19px;margin:28px 0 10px;letter-spacing:-.02em;color:var(--text-main)}
+  .svc-body p{margin-bottom:20px}
+  .svc-body ul,.svc-body ol{margin:0 0 20px 22px}
+  .svc-body li{margin-bottom:8px}
+  .svc-body strong{font-weight:600;color:var(--text-main)}
+  .svc-body a{color:var(--text-main);text-decoration:underline;text-underline-offset:3px}
+  .svc-faq details{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:16px;
+    padding:18px 22px;margin-bottom:12px}
+  .svc-faq summary{cursor:pointer;font-weight:600;color:var(--text-main);font-size:16px;list-style:none;
+    display:flex;justify-content:space-between;gap:16px}
+  .svc-faq summary::-webkit-details-marker{display:none}
+  .svc-faq summary::after{content:'+';color:var(--muted);font-weight:400;font-size:20px;line-height:1}
+  .svc-faq details[open] summary::after{content:'−'}
+  .svc-faq details p{margin-top:12px;font-size:15px;line-height:1.7}
+  .svc-related .item{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 0;
+    border-bottom:1px solid var(--border-soft);text-decoration:none;color:var(--text-main);transition:all .3s ease}
+  .svc-related .item:first-of-type{border-top:1px solid var(--border-soft)}
+  .svc-related .item:hover{padding-left:10px}
+  .svc-related .arrow{color:var(--muted);flex-shrink:0}
+  .svc-cta{margin-top:64px;background:var(--bg-card);border:1px solid var(--border-soft);border-radius:20px;padding:36px 32px}
+  .svc-cta h2{margin-top:0}
+  .svc-cta p{margin-bottom:24px}
+  .svc-cta .contact{margin-top:18px;font-size:14px;color:var(--muted)}
+  .svc-cta .contact a{color:var(--text-body)}
+  .disc{margin-top:32px;font-size:12px;color:var(--muted);line-height:1.7}
+  @media (prefers-reduced-motion: no-preference){
+    .inview{opacity:0;transform:translateY(22px);
+      transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+    .inview.is-visible{opacity:1;transform:translateY(0)}
+  }
+  @media(max-width:810px){.navbar{padding:14px 20px}main{padding:120px 20px 72px}.svc-cta{padding:28px 22px}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a class="logo" href="/">
+    <img src="/gat-marca.png" alt="" width="34" height="34"/>
+    <span class="logo-text"><span class="logo-name">Gonçalves</span><span class="logo-sub">Advocacia Tributária</span></span>
+  </a>
+  <a class="back" href="/#areas">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+    Áreas
+  </a>
+</nav>
+<main>
+  <header class="svc-hero">
+    <div class="label">${esc(tag)}</div>
+    <h1>${esc(title)}</h1>
+    <p class="lead">${esc(lead)}</p>
+    <div class="actions">
+      <a class="btn-primary" href="${waHref}" target="_blank" rel="noopener noreferrer">${WA_ICON} Falar pelo WhatsApp</a>
+      <span class="note">Resposta em até 24h · Atendimento em todo o Brasil</span>
+    </div>
+  </header>
+  <div class="svc-body inview">${bodyHtml}</div>
+  ${faqHtml}
+  ${relatedHtml}
+  <section class="svc-cta inview">
+    <h2>Entenda a sua situação</h2>
+    <p>Conte brevemente o seu caso. A primeira conversa serve para entender o problema e indicar os caminhos possíveis.</p>
+    <a class="btn-primary" href="${waHref}" target="_blank" rel="noopener noreferrer">${WA_ICON} Falar pelo WhatsApp</a>
+    <p class="contact">Raphael da Silva Gonçalves · OAB/AM 18.561 · <a href="mailto:raphael@gat.adv.br">raphael@gat.adv.br</a></p>
+  </section>
+  <p class="disc">Conteúdo informativo, em conformidade com o Provimento nº 205/2021 da OAB. Não constitui aconselhamento jurídico para caso concreto nem promessa de resultado.</p>
+</main>
+<script>
+  (function(){
+    if(!('IntersectionObserver' in window)){
+      document.querySelectorAll('.inview').forEach(function(el){el.classList.add('is-visible')});
+      return;
+    }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}
+      });
+    },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.inview').forEach(function(el){io.observe(el)});
+  })();
+</script>
+</body>
+</html>`;
+}
+
+const services = [];
+if (fs.existsSync(SVC_SRC)) {
+  const articleBySlug = Object.fromEntries(index.map(a => [a.slug, a]));
+  for (const file of fs.readdirSync(SVC_SRC).filter(f => f.endsWith('.md')).sort()) {
+    const { data, content } = matter(fs.readFileSync(path.join(SVC_SRC, file), 'utf8'));
+    const slug = file.replace(/\.md$/, '').replace(/^\d+-/, '');
+    const related = (data.related || []).map(s => articleBySlug[s]).filter(Boolean);
+    fs.writeFileSync(path.join(SVC_OUT, slug + '.html'), servicePage({
+      slug,
+      title: data.title || '',
+      seoTitle: data.seo_title || '',
+      description: data.description || '',
+      tag: data.tag || '',
+      lead: data.lead || '',
+      whatsapp: data.whatsapp || '',
+      bodyHtml: wrapTables(marked.parse(content || '')),
+      faq: data.faq || null,
+      related,
+    }));
+    services.push(slug);
+  }
+}
+
 // ---------------------------------------------------------------
 // sitemap.xml — lista todas as páginas do site para o Google
 // descobrir automaticamente artigos novos, sem indexação manual.
@@ -374,6 +563,7 @@ const toIsoDate = d => { try { return new Date(d).toISOString().split('T')[0]; }
 const sitemapUrls = [
   { loc: `${SITE_URL}/`, lastmod: today },
   { loc: `${SITE_URL}/artigos/`, lastmod: today },
+  ...services.map(s => ({ loc: `${SITE_URL}/servicos/${s}.html`, lastmod: today })),
   ...index.map(a => ({
     loc: `${SITE_URL}/artigos/${a.slug}.html`,
     lastmod: a.date ? toIsoDate(a.date) : today,
@@ -398,4 +588,4 @@ Sitemap: ${SITE_URL}/sitemap.xml
 `;
 fs.writeFileSync(path.join(__dirname, 'robots.txt'), robotsTxt);
 
-console.log(`GAT build: ${index.length} artigo(s) gerado(s). Sitemap com ${sitemapUrls.length} URL(s).`);
+console.log(`GAT build: ${index.length} artigo(s) e ${services.length} página(s) de serviço gerados. Sitemap com ${sitemapUrls.length} URL(s).`);

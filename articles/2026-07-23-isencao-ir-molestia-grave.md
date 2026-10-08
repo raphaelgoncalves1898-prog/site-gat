@@ -5,7 +5,7 @@ tag: "Tributação de Pessoas Físicas"
 date: 2026-07-23
 faq:
   - q: "Quais doenças dão direito à isenção de Imposto de Renda?"
-    a: "As 15 doenças previstas na Lei nº 7.713/88, listadas acima — de AIDS a tuberculose ativa, incluindo câncer, Parkinson e cardiopatia grave."
+    a: "As 16 doenças previstas na Lei nº 7.713/88, listadas acima — de AIDS a tuberculose ativa, incluindo câncer, Parkinson e cardiopatia grave."
   - q: "A isenção vale para quem ainda trabalha?"
     a: "Não. Vale apenas para rendimentos de aposentadoria, pensão ou reforma. Salário, renda autônoma e aluguéis continuam tributados normalmente."
   - q: "Dá para pedir restituição de anos anteriores?"
@@ -81,7 +81,7 @@ Esse risco cai bastante quando o processo é estruturado desde o início — lau
 
 ### Quais doenças dão direito à isenção de Imposto de Renda?
 
-As 15 doenças previstas na Lei nº 7.713/88, listadas acima — de AIDS a tuberculose ativa, incluindo câncer, Parkinson e cardiopatia grave.
+As 16 doenças previstas na Lei nº 7.713/88, listadas acima — de AIDS a tuberculose ativa, incluindo câncer, Parkinson e cardiopatia grave.
 
 ### A isenção vale para quem ainda trabalha?
 

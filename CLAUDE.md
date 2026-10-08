@@ -6,8 +6,9 @@ Site estático publicado no Netlify em https://gat.adv.br.
 
 - `index.html` — home (design "Noir": fundo `#121212`, cards `#1E1E1E`, tipografia Inter + Source Serif 4, cantos arredondados 20px, botões em pílula).
 - `articles/*.md` — artigos em markdown com frontmatter (`title`, `excerpt`, `tag`, `date`, opcional `cover`, `faq` e `has_zh`/`body_zh`).
+- `services/*.md` — páginas de serviço (frontmatter: `title`, `seo_title`, `description`, `tag`, `lead`, `whatsapp`, `related`, `faq`). O número no início do arquivo define a ordem e não entra no endereço; saem em `/servicos/<slug>.html` e são linkadas nos cartões de Áreas da home.
 - `build.js` — gera `/artigos/*.html` (páginas), `/artigos/index.html` (listagem), `articles/index.json` (a home lê para listar), `sitemap.xml` e `robots.txt`. Roda no deploy do Netlify (`npm install && npm run build`).
-- `artigos/`, `articles/index.json`, `sitemap.xml`, `robots.txt` são **artefatos de build** — gitignorados, nunca commitá-los.
+- `servicos/`, `artigos/`, `articles/index.json`, `sitemap.xml`, `robots.txt` são **artefatos de build** — gitignorados, nunca commitá-los.
 
 ## Regras de design
 
