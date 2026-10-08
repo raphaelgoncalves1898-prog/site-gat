@@ -22,6 +22,19 @@ if (!fs.existsSync(OUT)) { fs.mkdirSync(OUT, { recursive: true }); }
 const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 // envolve tabelas do markdown num container com scroll horizontal (mobile)
 const wrapTables = html => String(html || '').replace(/<table>[\s\S]*?<\/table>/g, m => `<div class="art-table-wrap">${m}</div>`);
+// Google Analytics — incluído no <head> de todas as páginas geradas (e no index.html / 404.html)
+const GA_SNIPPET = `<!-- Google Analytics (GA4). Cliques em links do WhatsApp contam como contato (generate_lead). -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3NZB8N43LV"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-3NZB8N43LV');
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');
+    if(a){gtag('event','generate_lead',{method:'whatsapp',page_path:location.pathname});}
+  });
+</script>`;
 const fmtDate = d => { try { return new Date(d).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' }); } catch { return ''; } };
 
 /* ============================================================
@@ -119,6 +132,7 @@ function page({ title, tag, date, isoDate, excerpt, slug, coverHtml, coverUrl, b
 <meta name="description" content="${description}"/>
 <meta name="robots" content="index, follow, max-image-preview:large"/>
 <meta name="theme-color" content="#121212"/>
+${GA_SNIPPET}
 <link rel="canonical" href="${url}"/>
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="GAT — Gonçalves Advocacia Tributária"/>
@@ -291,6 +305,7 @@ const listPage = `<!DOCTYPE html>
 <meta name="description" content="Análises sobre autuações fiscais, execução fiscal, planejamento tributário e Zona Franca de Manaus, por Raphael da Silva Gonçalves (OAB/AM 18.561)."/>
 <meta name="robots" content="index, follow, max-image-preview:large"/>
 <meta name="theme-color" content="#121212"/>
+${GA_SNIPPET}
 <link rel="canonical" href="${SITE_URL}/artigos/"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
 <link rel="apple-touch-icon" href="/favicon.png"/>
@@ -420,6 +435,7 @@ function servicePage({ slug, title, seoTitle, description, tag, lead, whatsapp, 
 <meta name="description" content="${esc(description)}"/>
 <meta name="robots" content="index, follow, max-image-preview:large"/>
 <meta name="theme-color" content="#121212"/>
+${GA_SNIPPET}
 <link rel="canonical" href="${url}"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="GAT — Gonçalves Advocacia Tributária"/>

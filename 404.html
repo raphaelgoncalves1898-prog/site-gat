@@ -6,6 +6,18 @@
 <title>Página não encontrada | GAT</title>
 <meta name="robots" content="noindex"/>
 <meta name="theme-color" content="#121212"/>
+<!-- Google Analytics (GA4). Cliques em links do WhatsApp contam como contato (generate_lead). -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3NZB8N43LV"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-3NZB8N43LV');
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');
+    if(a){gtag('event','generate_lead',{method:'whatsapp',page_path:location.pathname});}
+  });
+</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>

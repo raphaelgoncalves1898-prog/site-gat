@@ -7,6 +7,18 @@
   <meta name="description" content="Defesa de autuações fiscais, planejamento tributário e recuperação de créditos, com atuação nacional e foco nos incentivos da Zona Franca de Manaus (SUFRAMA)." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#121212" />
+  <!-- Google Analytics (GA4). Cliques em links do WhatsApp contam como contato (generate_lead). -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3NZB8N43LV"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());
+    gtag('config','G-3NZB8N43LV');
+    document.addEventListener('click',function(e){
+      var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');
+      if(a){gtag('event','generate_lead',{method:'whatsapp',page_path:location.pathname});}
+    });
+  </script>
   <link rel="canonical" href="https://gat.adv.br/" />
 
   <!-- Open Graph / Twitter -->
